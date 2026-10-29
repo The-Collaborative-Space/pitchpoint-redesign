@@ -1,0 +1,1361 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PitchPoint — Contract Business Development</title>
+<meta name="description" content="PitchPoint puts you in the room with the right decision-makers: contract business development, sales administration, positioning and PR.">
+<meta name="theme-color" content="#13151d">
+<link rel="preload" href="fonts/dmsans-var.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"DM Sans";src:url(fonts/dmsans-var.woff2) format("woff2");font-weight:300 700;font-display:swap}
+
+:root{
+  --navy:#13151d;
+  --navy-line:#2a2e3c;
+  --smoke:#f1ece7;
+  --smoke-dim:#c9c3bc;
+  --smoke-mute:#a39e98;
+  --gold:#a4946f;
+  --gold-hi:#c9b68a;
+  --gold-ink:#6c5f40;
+  --ink:#13151d;
+  --ink-soft:#3e414b;
+  --display:"DM Sans",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+  --gutter:clamp(1rem,4vw,3.5rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ast:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20transform%3D%22translate%2817.023%2089.6%29%22%20d%3D%22M-15.219-76.167a9.261%2C9.261%2C0%2C0%2C1%2C3.068-3.164l3.008-2.03-.421%2C3.582A9.37%2C9.37%2C0%2C0%2C1-10.949-73.6H-7.1a9.37%2C9.37%2C0%2C0%2C1-1.383-4.179L-8.9-81.361l3.008%2C2.03a9.261%2C9.261%2C0%2C0%2C1%2C3.068%2C3.164l1.8-3.343a9.41%2C9.41%2C0%2C0%2C1-4.331-.776L-8.663-81.6l3.308-1.313a9.41%2C9.41%2C0%2C0%2C1%2C4.331-.776l-1.8-3.343A9.261%2C9.261%2C0%2C0%2C1-5.9-83.869L-8.9-81.839l.421-3.582A9.37%2C9.37%2C0%2C0%2C1-7.1-89.6h-3.85a9.37%2C9.37%2C0%2C0%2C1%2C1.383%2C4.179l.421%2C3.582-3.008-2.03a9.261%2C9.261%2C0%2C0%2C1-3.068-3.164l-1.8%2C3.343a9.41%2C9.41%2C0%2C0%2C1%2C4.331.776L-9.385-81.6l-3.308%2C1.313a9.41%2C9.41%2C0%2C0%2C1-4.331.776Z%22/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--navy);color:var(--smoke);-webkit-text-size-adjust:100%;scrollbar-color:var(--gold) var(--navy)}
+body{margin:0;background:var(--navy);font:300 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--navy)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--navy-line);border:2px solid var(--navy)}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}
+img,svg{display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- scene ---------- */
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:0;transition:opacity 1.6s var(--ease)}
+#scene.ready{opacity:1}
+.no-webgl #scene{display:none}
+
+/* ---------- chrome ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:20;background:linear-gradient(rgba(19,21,29,.92),rgba(19,21,29,.6) 60%,rgba(19,21,29,0));display:flex;align-items:center;justify-content:space-between;padding:1.35rem var(--gutter);color:var(--smoke);transition:color .5s var(--ease)}
+.top.on-light{color:var(--ink);background:linear-gradient(rgba(241,236,231,.96),rgba(241,236,231,.75) 60%,rgba(241,236,231,0))}
+.brand{display:block;width:clamp(118px,11vw,150px);color:inherit}
+.brand svg{width:100%;height:auto}
+.brand svg path{fill:currentColor}
+.top nav{display:flex;gap:clamp(1rem,2.4vw,2.25rem);align-items:center}
+.top nav a{font:600 .76rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:.5rem 0;position:relative}
+.top nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:.2rem;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.top nav a:not(.btn):hover::after{transform:scaleX(1);transform-origin:left}
+.top .btn{padding:.7rem 1rem}
+@media (max-width:760px){.top nav a:not(.btn){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:.7rem;font:600 .8rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--navy);padding:1rem 1.35rem;border:1px solid var(--gold);transition:background .4s var(--ease),color .4s var(--ease),box-shadow .4s var(--ease),transform .6s var(--ease)}
+.btn svg{width:14px;height:14px;transition:transform .45s var(--ease)}
+.btn:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 10px 30px -12px rgba(164,148,111,.7)}
+.btn:hover svg{transform:translateX(4px)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:var(--smoke);color:var(--navy);border-color:var(--smoke);box-shadow:none}
+.on-light .btn.ghost:hover,.light .btn.ghost:hover{background:var(--ink);color:var(--smoke);border-color:var(--ink)}
+.textlink{display:inline-flex;align-items:center;gap:.55rem;font:600 .8rem/1 var(--display);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:1rem .25rem}
+.textlink{transition:transform .6s var(--ease)}
+.textlink svg{width:12px;height:12px;transition:transform .45s var(--ease)}
+.textlink:hover svg{transform:translateY(3px)}
+
+/* chapter rail */
+.rail{position:fixed;right:var(--gutter);top:50%;transform:translateY(-50%);z-index:15;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.15rem;transition:opacity .5s var(--ease)}
+.rail.hide{opacity:0;pointer-events:none}
+.rail a{display:flex;align-items:center;justify-content:flex-end;gap:.6rem;font:500 .72rem/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--smoke-mute);padding:.42rem 0;transition:color .4s var(--ease)}
+.rail a span{background:rgba(19,21,29,.85);padding:.3rem .45rem;opacity:0;transform:translateX(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.rail a i{width:10px;height:10px;display:grid;place-items:center}
+.rail a i::before{content:"";width:4px;height:4px;background:currentColor;transition:transform .4s var(--ease)}
+.rail a i svg{display:none;width:12px;height:12px}
+.rail:hover a span,.rail a.on span{opacity:1;transform:none}
+.rail a:hover{color:var(--smoke)}
+.rail a.on{color:var(--gold-hi)}
+.rail a.on i::before{display:none}
+.rail a.on i svg{display:block;fill:var(--gold-hi);animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:1000px){.rail{display:none}}
+.meter{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:left;transform:scaleX(0);background:var(--gold);z-index:30}
+
+/* ---------- story ---------- */
+main{position:relative;z-index:2}
+.ch{position:relative;min-height:140vh;display:flex;align-items:center;padding:12vh var(--gutter)}
+.ch.right{justify-content:flex-end}
+.ch .copy{max-width:min(31rem,40vw);position:relative}
+.ch .copy::before{content:"";position:absolute;inset:-5rem -7rem;background:radial-gradient(closest-side,rgba(19,21,29,.95),rgba(19,21,29,.8) 55%,rgba(19,21,29,0));z-index:-1;pointer-events:none}
+.hero .copy::before{inset:-4rem -6rem -2rem}
+.ch.right .copy{margin-right:clamp(0rem,5vw,6rem)}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.035em}
+h2{font-size:clamp(2.3rem,4.3vw,3.9rem);line-height:1.04;margin-bottom:1.5rem}
+h2 em{font-style:normal;color:var(--gold-hi)}
+.copy p{margin:0 0 1.1rem;color:var(--smoke-dim);max-width:62ch;text-wrap:pretty}
+.copy p.lead{color:var(--smoke);font-size:1.18rem;line-height:1.5;font-weight:400}
+.svc{list-style:none;margin:2rem 0 0;padding:0;border-top:1px solid var(--navy-line)}
+.svc li{display:grid;grid-template-columns:1.1rem 1fr;gap:.9rem;padding:1.05rem 0;border-bottom:1px solid var(--navy-line)}
+.svc li svg{width:13px;height:13px;margin-top:.35rem;fill:var(--gold)}
+.svc b{display:block;font:600 1.06rem/1.25 var(--display);letter-spacing:-.01em;color:var(--smoke);margin-bottom:.3rem}
+.svc span{color:var(--smoke-mute);font-size:.98rem;line-height:1.5}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;align-items:flex-end;padding-bottom:clamp(2.5rem,7vh,5rem)}
+.hero .copy{max-width:min(58rem,66vw)}
+h1{font-size:clamp(2.6rem,5.3vw,5.1rem);line-height:1.02}
+h1 .g{color:var(--gold-hi)}
+.focus{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem;align-items:center;margin:2rem 0 2.2rem;padding:0;list-style:none;font:500 .8rem/1.2 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--smoke-dim)}
+.focus li{display:flex;align-items:center;gap:1.1rem}
+.focus li+li::before{content:"";width:11px;height:11px;background:var(--gold);-webkit-mask:var(--ast) center/contain no-repeat;mask:var(--ast) center/contain no-repeat}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center}
+.scrollcue{position:absolute;right:var(--gutter);bottom:clamp(2.5rem,7vh,5rem);font:500 .68rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke-mute);writing-mode:vertical-rl;display:flex;align-items:center;gap:.8rem}
+.scrollcue::after{content:"";width:1px;height:64px;background:linear-gradient(var(--gold),transparent);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:1000px){.scrollcue{display:none}}
+
+/* work chapters */
+.figure{font:700 clamp(4.5rem,10vw,8.5rem)/.85 var(--display);letter-spacing:-.06em;color:var(--smoke);display:flex;align-items:baseline;gap:.15em;margin:0 0 1.4rem}
+.figure small{font-size:.28em;letter-spacing:-.01em;color:var(--gold-hi)}
+.deliv{display:inline-flex;gap:.6rem;align-items:center;margin-top:.6rem;font:500 .72rem/1.3 var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--smoke-mute);border-top:1px solid var(--navy-line);padding-top:1rem}
+
+/* connect */
+.connect{min-height:100vh;min-height:100svh;justify-content:center;align-items:flex-end;text-align:center;padding-bottom:9vh}
+.connect .copy{max-width:56rem;margin:0 auto}
+.connect h2{font-size:clamp(2.8rem,6vw,5.2rem)}
+.connect .actions{justify-content:center;margin-top:2.2rem}
+.connect p{margin-inline:auto}
+.connect .copy .hours{margin-top:3rem;font:500 .72rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke-mute)}
+
+/* reveal: visible by default, animated only when JS confirms */
+.js .copy>*{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.1s var(--ease)}
+.js .copy.in>*{opacity:1;transform:none;filter:none}
+.js .copy.in>*:nth-child(2){transition-delay:.08s}
+.js .copy.in>*:nth-child(3){transition-delay:.16s}
+.js .copy.in>*:nth-child(4){transition-delay:.24s}
+.js .copy.in>*:nth-child(5){transition-delay:.32s}
+
+/* ---------- light index ---------- */
+.light{position:relative;z-index:3;background:var(--smoke);color:var(--ink);padding:clamp(5rem,12vh,9rem) var(--gutter) clamp(4rem,10vh,7rem)}
+.light .head{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:2rem 4rem;align-items:end;margin-bottom:clamp(3rem,8vh,5.5rem)}
+.light h2{font-size:clamp(2.8rem,6vw,5.2rem);margin:0}
+.light .head p{margin:0;color:var(--ink-soft);max-width:44ch;font-size:1.12rem}
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.col{padding:2rem 2rem 2.5rem 0}
+.col+.col{padding-left:2rem;border-left:1px solid #d6cfc6}
+.col h3{font-size:clamp(1.45rem,2vw,1.8rem);line-height:1.1;margin:0 0 2rem;display:flex;gap:.7rem;align-items:flex-start}
+.col h3 svg{width:16px;height:16px;flex:none;fill:var(--gold);margin-top:.35rem}
+.col dl{margin:0}
+.col dt{font:600 1.05rem/1.3 var(--display);letter-spacing:-.01em;margin-top:1.6rem}
+.col dd{margin:.35rem 0 0;color:var(--ink-soft);font-size:.98rem;line-height:1.55}
+.areas{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;margin-top:clamp(3rem,7vh,4.5rem);padding-top:1.6rem;border-top:1px solid #d6cfc6;font:700 clamp(1.3rem,2.4vw,2rem)/1.15 var(--display);letter-spacing:-.03em}
+.areas i{width:14px;height:14px;background:var(--gold);-webkit-mask:var(--ast) center/contain no-repeat;mask:var(--ast) center/contain no-repeat}
+.clients{margin-top:clamp(3rem,7vh,4.5rem);display:grid;grid-template-columns:auto 1fr;gap:1rem 3rem;align-items:baseline}
+.clients .l{font:500 .72rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink)}
+.clients ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 2.2rem;font:500 clamp(1.1rem,1.6vw,1.35rem)/1.3 var(--display);letter-spacing:-.01em}
+
+footer{position:relative;z-index:3;background:var(--navy);color:var(--smoke);padding:clamp(4rem,10vh,7rem) var(--gutter) 2rem}
+.fgrid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:3rem}
+.fbig{font:700 clamp(2rem,4.6vw,4.2rem)/1.02 var(--display);letter-spacing:-.04em;margin:0 0 2rem}
+.fbig a{text-decoration:none;display:block;transition:color .4s var(--ease)}
+.fbig a:hover{color:var(--gold-hi)}
+.fcol h4{font:500 .72rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke-mute);margin:.6rem 0 1.2rem}
+.fcol a,.fcol p{display:block;margin:0 0 .6rem;color:var(--smoke-dim);text-decoration:none}
+.fcol a:hover{color:var(--gold-hi);text-decoration:underline}
+.fbase{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:center;margin-top:clamp(4rem,10vh,6rem);padding-top:1.5rem;border-top:1px solid var(--navy-line);font-size:.85rem;color:var(--smoke-mute)}
+.fbase .brand{width:120px;color:var(--smoke)}
+
+
+/* ---------- word reveal ---------- */
+.js .copy>h1,.js .copy>h2{opacity:1;transform:none;filter:none}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .04em .14em;margin:0 -.04em -.14em}
+.w>span{display:inline-block;transform:translateY(112%) rotate(4deg);transform-origin:0 100%;transition:transform 1.15s var(--ease);transition-delay:calc(var(--i)*38ms)}
+.copy.in .w>span{transform:none}
+.hero .w>span{transition-delay:calc(1.1s + var(--i)*45ms)}
+.js .hero .copy.in>*:not(h1){transition-delay:1.7s}
+
+/* ---------- pinned annotations ---------- */
+.tags{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.tag{position:absolute;left:0;top:0;display:flex;align-items:center;opacity:0;will-change:transform,opacity}
+.tag.l{flex-direction:row-reverse}
+.tag i{width:7px;height:7px;flex:none;background:var(--gold-hi);box-shadow:0 0 14px 3px rgba(201,182,138,.55);transform:translateX(-3.5px) rotate(45deg)}
+.tag.l i{transform:translateX(3.5px) rotate(45deg)}
+.tag s{width:34px;height:1px;background:rgba(201,182,138,.6);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.tag.l s{transform-origin:right}
+.tag b{font:500 .7rem/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);padding:.5rem .65rem;border:1px solid rgba(201,182,138,.45);background:rgba(19,21,29,.78);white-space:nowrap;clip-path:inset(0 100% 0 0);transition:clip-path .8s var(--ease) .15s;font-variant-numeric:tabular-nums}
+.tag.l b{clip-path:inset(0 0 0 100%)}
+.tag.on s{transform:scaleX(1)}
+.tag.on b{clip-path:inset(0 0 0 0)}
+
+/* ---------- cursor ---------- */
+.cursor{position:fixed;left:0;top:0;z-index:50;pointer-events:none;opacity:0;transition:opacity .4s var(--ease)}
+.cursor.live{opacity:1}
+.cursor .ring,.cursor .dot,.cursor .hint{position:fixed;left:0;top:0}
+.cursor .ring::before{content:"";position:absolute;left:-15px;top:-15px;width:30px;height:30px;border:1px solid rgba(201,182,138,.75);transition:transform .55s var(--ease),background .4s var(--ease),border-color .4s var(--ease)}
+.cursor .dot::before{content:"";position:absolute;left:-2px;top:-2px;width:4px;height:4px;background:var(--gold-hi)}
+.cursor .hint{font:500 .7rem/1 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-hi);white-space:nowrap;margin:-4px 0 0 26px;opacity:0;transition:opacity .5s var(--ease)}
+.cursor.hint-on .hint{opacity:1}
+.cursor.hot .ring::before{transform:scale(1.6) rotate(45deg);background:rgba(201,182,138,.12);border-color:var(--gold-hi)}
+.cursor.press .ring::before{transform:scale(.6) rotate(45deg)}
+.cursor.on-light .ring::before{border-color:rgba(19,21,29,.55)}
+.cursor.on-light .dot::before{background:var(--ink)}
+@media (hover:none),(pointer:coarse){.cursor{display:none}}
+@media (max-width:760px){.tag b{font-size:.7rem;padding:.4rem .5rem;letter-spacing:.08em}.tag s{width:18px}.tag.photo{display:none}}
+
+
+/* photo captions and cursor over a photograph */
+.tag.photo i,.tag.photo s{display:none}
+.tag.photo b{background:none;border:0;padding:0;color:var(--gold-hi);clip-path:inset(0 100% 0 0)}
+.tag.photo.on b{clip-path:inset(0 0 0 0)}
+.over-photo .cursor .ring::before{transform:scale(2.3) rotate(45deg);background:rgba(201,182,138,.1);border-color:var(--gold-hi)}
+
+/* ---------- made for the room: their deliverables ---------- */
+.made{margin-top:clamp(4rem,10vh,6.5rem)}
+.made-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem 3rem;margin-bottom:2rem}
+.made-head h3{font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.05}
+.made-head p{margin:0;max-width:40ch;color:var(--ink-soft)}
+.strip{display:flex;gap:clamp(1rem,2vw,1.75rem);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--gutter) 1.5rem;margin:0 calc(-1*var(--gutter));cursor:grab;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;overscroll-behavior-x:contain}
+.strip.drag{cursor:grabbing;scroll-snap-type:none}
+.strip::-webkit-scrollbar{height:6px}
+.strip::-webkit-scrollbar-thumb{background:#d6cfc6;border:0}
+.strip figure{flex:none;margin:0;scroll-snap-align:start;width:auto}
+.strip .ph{height:clamp(240px,34vw,400px);overflow:hidden;background:#e6dfd6;position:relative}
+.strip img{height:100%;width:auto;display:block;transition:transform 1.1s var(--ease),filter .8s var(--ease);filter:saturate(.85);-webkit-user-drag:none;user-select:none}
+.strip figure:hover img{transform:scale(1.035);filter:saturate(1)}
+.strip figcaption{display:flex;flex-direction:column;gap:.2rem;padding-top:.9rem;border-top:1px solid #d6cfc6;margin-top:.9rem;max-width:34ch}
+.strip figcaption b{font:600 1rem/1.25 var(--display);letter-spacing:-.01em}
+.strip figcaption span{font-size:.92rem;color:var(--ink-soft)}
+.planner{margin-top:clamp(4rem,10vh,6.5rem);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:2rem clamp(2rem,5vw,5rem);align-items:center;padding-top:clamp(2.5rem,6vh,3.5rem);border-top:2px solid var(--ink)}
+.planner h3{font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.05;margin-bottom:1rem}
+.planner p{margin:0 0 1.6rem;color:var(--ink-soft);max-width:44ch}
+.planner img{width:100%;height:auto;transform:rotate(-2deg);transition:transform 1.1s var(--ease)}
+.planner:hover img{transform:rotate(0) scale(1.02)}
+.light .btn{color:var(--smoke);background:var(--ink);border-color:var(--ink)}
+.light .btn:hover{background:var(--gold-ink);border-color:var(--gold-ink);box-shadow:none}
+@media (max-width:760px){.planner{grid-template-columns:1fr}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1000px){
+  .ch .copy{max-width:min(34rem,58vw)}
+  .cols{grid-template-columns:1fr}
+  .col,.col+.col{padding:2rem 0;border-left:0;border-top:1px solid #d6cfc6}
+  .col:first-child{border-top:0}
+  .light .head{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .fgrid>div:first-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  body{font-size:1rem}
+  .ch{min-height:150vh;align-items:flex-end;padding:0 var(--gutter) 12vh}
+  .ch.right{justify-content:flex-start}
+  .ch .copy,.ch.right .copy{max-width:100%;margin:0}
+  .ch .copy::before{content:"";position:absolute;inset:-3rem calc(-1*var(--gutter)) -2rem;background:linear-gradient(to top,rgba(19,21,29,.94) 55%,rgba(19,21,29,0));z-index:-1}
+  .hero{min-height:100svh;padding-bottom:2.5rem}
+  .hero .copy{max-width:100%}
+  .hero .copy::before{inset:-6rem calc(-1*var(--gutter)) -2.5rem}
+  h1{font-size:clamp(2.2rem,10vw,3.1rem)}
+  .focus{margin:1.4rem 0 1.6rem;font-size:.7rem}
+  .connect{text-align:left;min-height:100svh;padding-bottom:6vh}
+  .connect .actions{justify-content:flex-start}
+  .clients{grid-template-columns:1fr}
+  .fgrid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .js .copy>*{opacity:1;transform:none;filter:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ast" viewBox="0 0 16 16"><path transform="translate(17.023 89.6)" d="M-15.219-76.167a9.261,9.261,0,0,1,3.068-3.164l3.008-2.03-.421,3.582A9.37,9.37,0,0,1-10.949-73.6H-7.1a9.37,9.37,0,0,1-1.383-4.179L-8.9-81.361l3.008,2.03a9.261,9.261,0,0,1,3.068,3.164l1.8-3.343a9.41,9.41,0,0,1-4.331-.776L-8.663-81.6l3.308-1.313a9.41,9.41,0,0,1,4.331-.776l-1.8-3.343A9.261,9.261,0,0,1-5.9-83.869L-8.9-81.839l.421-3.582A9.37,9.37,0,0,1-7.1-89.6h-3.85a9.37,9.37,0,0,1,1.383,4.179l.421,3.582-3.008-2.03a9.261,9.261,0,0,1-3.068-3.164l-1.8,3.343a9.41,9.41,0,0,1,4.331.776L-9.385-81.6l-3.308,1.313a9.41,9.41,0,0,1-4.331.776Z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 14 14"><path d="M1 7h11M7.5 2.5 12 7l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+  <symbol id="down" viewBox="0 0 14 14"><path d="M7 1v11M2.5 7.5 7 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></symbol>
+</svg>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="meter" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="brand" href="#start" aria-label="PitchPoint home"><svg aria-hidden="true" focusable="false" width="207" height="44" viewBox="0 0 207 44"  xmlns="http://www.w3.org/2000/svg">
+<path d="M7 26.2V43H0.4V0.999997H10.36C13.2 0.999997 15.52 1.84 17.32 3.52C19.32 5.36 20.32 7.96 20.32 11.32V15.88C20.32 19.28 19.32 21.9 17.32 23.74C15.56 25.38 13.24 26.2 10.36 26.2H7ZM7 7.6V19.6H10.36C11.48 19.6 12.3 19.36 12.82 18.88C13.42 18.32 13.72 17.32 13.72 15.88V11.32C13.72 9.92 13.42 8.92 12.82 8.32C12.3 7.84 11.48 7.6 10.36 7.6H7ZM30.4961 0.999997V43H23.8961V0.999997H30.4961ZM53.5619 7.6H46.8419V43H40.2419V7.6H33.5219V0.999997H53.5619V7.6ZM72.8542 41.02C71.0942 42.66 68.7742 43.48 65.8942 43.48C63.0942 43.48 60.7742 42.66 58.9342 41.02C56.9342 39.02 55.9342 36.4 55.9342 33.16V10.84C55.9342 7.6 56.9342 4.98 58.9342 2.98C60.7742 1.34 63.0942 0.52 65.8942 0.52C68.7742 0.52 71.0942 1.34 72.8542 2.98C74.8542 4.9 75.8542 7.52 75.8542 10.84V14.56H69.2542V10.84C69.2542 9.36 68.9742 8.36 68.4142 7.84C67.8942 7.36 67.0542 7.12 65.8942 7.12C64.7742 7.12 63.9542 7.36 63.4342 7.84C62.8342 8.4 62.5342 9.4 62.5342 10.84V33.16C62.5342 34.6 62.8342 35.6 63.4342 36.16C63.9542 36.64 64.7742 36.88 65.8942 36.88C67.0542 36.88 67.8942 36.64 68.4142 36.16C68.9742 35.64 69.2542 34.64 69.2542 33.16V27.76H75.8542V33.16C75.8542 36.48 74.8542 39.1 72.8542 41.02ZM99.7731 0.999997V43H93.1731V24.76H86.4531V43H79.8531V0.999997H86.4531V18.16H93.1731V0.999997H99.7731ZM111.18 26.2V43H104.58V0.999997H114.54C117.38 0.999997 119.7 1.84 121.5 3.52C123.5 5.36 124.5 7.96 124.5 11.32V15.88C124.5 19.28 123.5 21.9 121.5 23.74C119.74 25.38 117.42 26.2 114.54 26.2H111.18ZM111.18 7.6V19.6H114.54C115.66 19.6 116.48 19.36 117 18.88C117.6 18.32 117.9 17.32 117.9 15.88V11.32C117.9 9.92 117.6 8.92 117 8.32C116.48 7.84 115.66 7.6 114.54 7.6H111.18ZM144.573 41.02C142.813 42.66 140.493 43.48 137.613 43.48C134.733 43.48 132.413 42.66 130.653 41.02C128.653 39.1 127.653 36.48 127.653 33.16V10.84C127.653 7.52 128.653 4.9 130.653 2.98C132.413 1.34 134.733 0.52 137.613 0.52C140.493 0.52 142.813 1.34 144.573 2.98C146.573 4.9 147.573 7.52 147.573 10.84V33.16C147.573 36.48 146.573 39.1 144.573 41.02ZM140.073 7.84C139.593 7.36 138.773 7.12 137.613 7.12C136.493 7.12 135.673 7.36 135.153 7.84C134.553 8.4 134.253 9.4 134.253 10.84V33.16C134.253 34.6 134.553 35.6 135.153 36.16C135.673 36.64 136.493 36.88 137.613 36.88C138.773 36.88 139.593 36.64 140.073 36.16C140.673 35.64 140.973 34.64 140.973 33.16V10.84C140.973 9.36 140.673 8.36 140.073 7.84ZM158.406 0.999997V43H151.806V0.999997H158.406ZM183.512 43H179.672L169.592 21.7V43H162.992V0.999997H166.832L176.912 22.24V0.999997H183.512V43ZM206.316 7.6H199.596V43H192.996V7.6H186.276V0.999997H206.316V7.6Z" />
+</svg></a>
+  <nav aria-label="Primary">
+    <a href="#room">What we do</a>
+    <a href="#work">Latest work</a>
+    <a href="#services">Services</a>
+    <a class="btn ghost" href="#connect">Connect</a>
+  </nav>
+</header>
+
+<ol class="rail" aria-label="Chapters">
+  <li><a href="#start" data-to="0"><span>Start</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#problem" data-to="1"><span>The problem</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#room" data-to="2"><span>The room</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#region" data-to="3"><span>The region</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#position" data-to="4"><span>Positioning</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#amplify" data-to="5"><span>Amplify</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#work" data-to="6"><span>The work</span><i><svg><use href="#ast"/></svg></i></a></li>
+  <li><a href="#connect" data-to="9"><span>Connect</span><i><svg><use href="#ast"/></svg></i></a></li>
+</ol>
+
+<main>
+  <section class="ch hero" id="start" data-stage="0">
+    <div class="copy">
+      <h1>We’re really good at contract business development <span class="g">and sales administration.</span></h1>
+      <ul class="focus" aria-label="Focus areas">
+        <li>Property development</li>
+        <li>Planning &amp; Advisory</li>
+        <li>Adaptive Reuse and Repurpose</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="#connect">Connect <svg><use href="#arrow"/></svg></a>
+        <a class="textlink" href="#problem">See how we work <svg><use href="#down"/></svg></a>
+      </div>
+    </div>
+    <div class="scrollcue" aria-hidden="true">Scroll</div>
+  </section>
+
+  <section class="ch" id="problem" data-stage="1">
+    <div class="copy">
+      <h2>The right people are <em>hard to reach.</em></h2>
+      <p class="lead">Referrals got you this far. They’re not a plan for what comes next.</p>
+      <p>If the bottleneck is getting in front of decision-makers, not the quality of what you do, that is exactly the work we take on.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="room" data-stage="2">
+    <div class="copy">
+      <h2>So we build <em>the room.</em></h2>
+      <p class="lead">We curate private business development events and take care of the coordination, guest outreach and management.</p>
+      <ul class="svc">
+        <li><svg><use href="#ast"/></svg><div><b>Outreach &amp; Corporate Access</b><span>Hosted lunches and dinners that seat you with the decision-makers you need.</span></div></li>
+        <li><svg><use href="#ast"/></svg><div><b>One-to-One Campaigns</b><span>Short, targeted appointment-setting when you need specific meetings.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ch right" id="region" data-stage="3">
+    <div class="copy">
+      <h2>And open <em>the region.</em></h2>
+      <p class="lead">Satellite Representation: Southern Hemisphere sales representation for Asia Pacific market entry.</p>
+      <p>We’re based in South Australia and act as your team on the ground before you have one.</p>
+    </div>
+  </section>
+
+  <section class="ch" id="position" data-stage="4">
+    <div class="copy">
+      <h2>Then make you <em>hard to forget.</em></h2>
+      <p class="lead">Once you’re in the room, the material you leave behind has to do the talking.</p>
+      <ul class="svc">
+        <li><svg><use href="#ast"/></svg><div><b>Capability Statements</b><span>A clear account of who you are and what you can deliver.</span></div></li>
+        <li><svg><use href="#ast"/></svg><div><b>Pitch Decks &amp; Tender Materials</b><span>Written for the panel that decides.</span></div></li>
+        <li><svg><use href="#ast"/></svg><div><b>Corporate Documentation</b><span>Consistent, credible paperwork behind the pitch.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ch right" id="amplify" data-stage="5">
+    <div class="copy">
+      <h2>And make sure <em>it carries.</em></h2>
+      <ul class="svc">
+        <li><svg><use href="#ast"/></svg><div><b>Public Relations</b><span>Media analysis, press kits and product launches.</span></div></li>
+        <li><svg><use href="#ast"/></svg><div><b>Marketing &amp; Content</b><span>Annual and content marketing plans.</span></div></li>
+        <li><svg><use href="#ast"/></svg><div><b>Communications</b><span>Copywriting for statements and speeches.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="ch" id="work" data-stage="6">
+    <div class="copy">
+      <p class="figure">182<small>km</small></p>
+      <h2>Underground, <em>across Queensland.</em></h2>
+      <p>An investment summary for a 182 km underground water pipeline project in Queensland.</p>
+      <p class="deliv">The Bowen Pipeline Company · Investment summary</p>
+    </div>
+  </section>
+
+  <section class="ch right" id="tbh" data-stage="7">
+    <div class="copy">
+      <h2>Data centres <em>&amp; renewables.</em></h2>
+      <p class="lead">A strategy session for data centre and renewable energy executives.</p>
+      <p>The fourth engagement of its kind for TBH.</p>
+      <p class="deliv">TBH Consulting · Business development event</p>
+    </div>
+  </section>
+
+  <section class="ch" id="co2crc" data-stage="8">
+    <div class="copy">
+      <h2>A position, <em>made portable.</em></h2>
+      <p class="lead">Leave-behind and presentation material supporting SK E&amp;S’s position on the London Protocol.</p>
+      <p class="deliv">CO2CRC · Positioning collateral</p>
+    </div>
+  </section>
+
+  <section class="ch connect" id="connect" data-stage="9">
+    <div class="copy">
+      <h2>Let’s get you <em>in the room.</em></h2>
+      <p class="lead">Tell us who you need to meet. We’ll take it from there.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:candice.cooke@pitchpoint.com.au">Email Candice <svg><use href="#arrow"/></svg></a>
+        <a class="btn ghost" href="tel:+61422509739">Call 0422 509 739</a>
+      </div>
+      <p class="hours">Hours: Australian Eastern Standard Time (AEST)</p>
+    </div>
+  </section>
+</main>
+
+<section class="light" id="services" aria-labelledby="svc-h">
+  <div class="head">
+    <h2 id="svc-h">Everything we do</h2>
+    <p>Contract business development and sales administration, with the positioning and communications to back it.</p>
+  </div>
+  <div class="cols">
+    <div class="col">
+      <h3><svg><use href="#ast"/></svg>Contract Sales Services</h3>
+      <dl>
+        <dt>Outreach &amp; Corporate Access Campaigns</dt><dd>Hosted lunches and dinners to connect you with decision-makers.</dd>
+        <dt>One-to-One Campaigns</dt><dd>Short, targeted appointment-setting initiatives.</dd>
+        <dt>Satellite Representation</dt><dd>Southern Hemisphere sales representation for Asia Pacific market entry, based in South Australia.</dd>
+      </dl>
+    </div>
+    <div class="col">
+      <h3><svg><use href="#ast"/></svg>Positioning Services</h3>
+      <dl>
+        <dt>Capability Statements</dt><dd>Who you are and what you can deliver, set down clearly.</dd>
+        <dt>Pitch Decks &amp; Tender Materials</dt><dd>Presentation and submission material for the people who decide.</dd>
+        <dt>Corporate Documentation</dt><dd>The supporting documents behind a credible pitch.</dd>
+      </dl>
+    </div>
+    <div class="col">
+      <h3><svg><use href="#ast"/></svg>PR, Marketing &amp; Communications</h3>
+      <dl>
+        <dt>Public Relations Services</dt><dd>Media analysis, press kits and product launches.</dd>
+        <dt>Marketing &amp; Content Marketing</dt><dd>Annual and content marketing plans.</dd>
+        <dt>Communication Services</dt><dd>Copywriting for statements and speeches.</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="areas">Property development <i></i> Planning &amp; Advisory <i></i> Adaptive Reuse and Repurpose</div>
+  <div class="clients"><span class="l">Selected clients</span>
+    <ul><li>InDeMa Properties</li><li>TBH Consulting</li><li>The Bowen Pipeline Company</li><li>CO2CRC</li><li>Bunnings Trade</li></ul>
+  </div>
+  <div class="made" aria-labelledby="made-h">
+    <div class="made-head">
+      <h3 id="made-h">Made for the room</h3>
+      <p>Some of the material we’ve produced for clients to put on the table. Drag to browse.</p>
+    </div>
+    <div class="strip" tabindex="0" aria-label="Client collateral">
+      <figure><div class="ph"><img src="assets/photos/work-indema-capability.jpg" alt="Spread of InDeMa Properties capability statement pages, headed 'Your whole-of-life partner for major property developments'" loading="lazy" width="1300" height="900"></div><figcaption><b>InDeMa Properties</b><span>Capability statement</span></figcaption></figure>
+      <figure><div class="ph"><img src="assets/photos/work-co2crc-prospectus.jpg" alt="CO2CRC membership prospectus cover and inside pages" loading="lazy" width="1100" height="1326"></div><figcaption><b>CO2CRC</b><span>Membership prospectus</span></figcaption></figure>
+      <figure><div class="ph"><img src="assets/photos/work-bunnings-trade.jpg" alt="Bunnings Trade builder solution strategy document pages" loading="lazy" width="1156" height="800"></div><figcaption><b>Bunnings Trade</b><span>Builder solution strategy</span></figcaption></figure>
+      <figure><div class="ph"><img src="assets/photos/work-bowen-summary.jpg" alt="The Bowen Pipeline Company investment summary pages" loading="lazy" width="800" height="964"></div><figcaption><b>The Bowen Pipeline Company</b><span>Investment summary</span></figcaption></figure>
+      <figure><div class="ph"><img src="assets/photos/work-energy-australia.jpg" alt="Document pages titled 'Marketing partnerships with Energy Australia'" loading="lazy" width="1100" height="1326"></div><figcaption><b>Energy Australia</b><span>Marketing partnerships</span></figcaption></figure>
+      <figure><div class="ph"><img src="assets/photos/work-legal-seminar.jpg" alt="Seminar slides on genetic testing in medical negligence cases" loading="lazy" width="1300" height="900"></div><figcaption><b>Legal seminar</b><span>Genetic testing in medical negligence cases</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="planner">
+    <div>
+      <h3>The function &amp; campaign planner</h3>
+      <p>Financial and calendar year dates for anyone planning functions, launches and campaigns, laid out on one page.</p>
+      <a class="btn" href="mailto:candice.cooke@pitchpoint.com.au?subject=Function%20%26%20campaign%20planner">Request the planner <svg><use href="#arrow"/></svg></a>
+    </div>
+    <img src="assets/photos/function-planner.png" alt="PitchPoint function and campaign planner: a year grid of dates for function planners" loading="lazy" width="900" height="594">
+  </div>
+</section>
+
+<footer>
+  <div class="fgrid">
+    <div>
+      <p class="fbig"><a href="mailto:candice.cooke@pitchpoint.com.au">candice.cooke<br>@pitchpoint.com.au</a></p>
+    </div>
+    <div class="fcol">
+      <h4>Talk to us</h4>
+      <a href="tel:+61422509739">0422 509 739</a>
+      <p>Hours: AEST</p>
+    </div>
+    <div class="fcol">
+      <h4>Follow</h4>
+      <a href="https://au.linkedin.com/company/pitchpoint-pty-ltd" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@pitchpoint-au" rel="noopener">YouTube</a>
+    </div>
+  </div>
+  <div class="fbase">
+    <a class="brand" href="#start" aria-label="Back to top"><svg aria-hidden="true" focusable="false" width="207" height="44" viewBox="0 0 207 44"  xmlns="http://www.w3.org/2000/svg">
+<path d="M7 26.2V43H0.4V0.999997H10.36C13.2 0.999997 15.52 1.84 17.32 3.52C19.32 5.36 20.32 7.96 20.32 11.32V15.88C20.32 19.28 19.32 21.9 17.32 23.74C15.56 25.38 13.24 26.2 10.36 26.2H7ZM7 7.6V19.6H10.36C11.48 19.6 12.3 19.36 12.82 18.88C13.42 18.32 13.72 17.32 13.72 15.88V11.32C13.72 9.92 13.42 8.92 12.82 8.32C12.3 7.84 11.48 7.6 10.36 7.6H7ZM30.4961 0.999997V43H23.8961V0.999997H30.4961ZM53.5619 7.6H46.8419V43H40.2419V7.6H33.5219V0.999997H53.5619V7.6ZM72.8542 41.02C71.0942 42.66 68.7742 43.48 65.8942 43.48C63.0942 43.48 60.7742 42.66 58.9342 41.02C56.9342 39.02 55.9342 36.4 55.9342 33.16V10.84C55.9342 7.6 56.9342 4.98 58.9342 2.98C60.7742 1.34 63.0942 0.52 65.8942 0.52C68.7742 0.52 71.0942 1.34 72.8542 2.98C74.8542 4.9 75.8542 7.52 75.8542 10.84V14.56H69.2542V10.84C69.2542 9.36 68.9742 8.36 68.4142 7.84C67.8942 7.36 67.0542 7.12 65.8942 7.12C64.7742 7.12 63.9542 7.36 63.4342 7.84C62.8342 8.4 62.5342 9.4 62.5342 10.84V33.16C62.5342 34.6 62.8342 35.6 63.4342 36.16C63.9542 36.64 64.7742 36.88 65.8942 36.88C67.0542 36.88 67.8942 36.64 68.4142 36.16C68.9742 35.64 69.2542 34.64 69.2542 33.16V27.76H75.8542V33.16C75.8542 36.48 74.8542 39.1 72.8542 41.02ZM99.7731 0.999997V43H93.1731V24.76H86.4531V43H79.8531V0.999997H86.4531V18.16H93.1731V0.999997H99.7731ZM111.18 26.2V43H104.58V0.999997H114.54C117.38 0.999997 119.7 1.84 121.5 3.52C123.5 5.36 124.5 7.96 124.5 11.32V15.88C124.5 19.28 123.5 21.9 121.5 23.74C119.74 25.38 117.42 26.2 114.54 26.2H111.18ZM111.18 7.6V19.6H114.54C115.66 19.6 116.48 19.36 117 18.88C117.6 18.32 117.9 17.32 117.9 15.88V11.32C117.9 9.92 117.6 8.92 117 8.32C116.48 7.84 115.66 7.6 114.54 7.6H111.18ZM144.573 41.02C142.813 42.66 140.493 43.48 137.613 43.48C134.733 43.48 132.413 42.66 130.653 41.02C128.653 39.1 127.653 36.48 127.653 33.16V10.84C127.653 7.52 128.653 4.9 130.653 2.98C132.413 1.34 134.733 0.52 137.613 0.52C140.493 0.52 142.813 1.34 144.573 2.98C146.573 4.9 147.573 7.52 147.573 10.84V33.16C147.573 36.48 146.573 39.1 144.573 41.02ZM140.073 7.84C139.593 7.36 138.773 7.12 137.613 7.12C136.493 7.12 135.673 7.36 135.153 7.84C134.553 8.4 134.253 9.4 134.253 10.84V33.16C134.253 34.6 134.553 35.6 135.153 36.16C135.673 36.64 136.493 36.88 137.613 36.88C138.773 36.88 139.593 36.64 140.073 36.16C140.673 35.64 140.973 34.64 140.973 33.16V10.84C140.973 9.36 140.673 8.36 140.073 7.84ZM158.406 0.999997V43H151.806V0.999997H158.406ZM183.512 43H179.672L169.592 21.7V43H162.992V0.999997H166.832L176.912 22.24V0.999997H183.512V43ZM206.316 7.6H199.596V43H192.996V7.6H186.276V0.999997H206.316V7.6Z" />
+</svg></a>
+    <span>© PitchPoint Pty Ltd. Concept redesign, 2026.</span>
+  </div>
+</footer>
+
+<script>document.documentElement.classList.add('js')</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const small = matchMedia('(max-width: 760px)').matches;
+const N = small ? 6500 : 12000;
+const canvas = document.getElementById('scene');
+
+/* ---------- copy reveal, rail, header (work without WebGL) ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }), { threshold: .25 });
+document.querySelectorAll('.copy').forEach(c => io.observe(c));
+const sections = [...document.querySelectorAll('[data-stage]')];
+const rail = document.querySelector('.rail');
+const railLinks = [...rail.querySelectorAll('a')];
+const top = document.querySelector('.top');
+const light = document.getElementById('services');
+const meter = document.querySelector('.meter');
+
+let anchors = [], lightTop = 0, vh = innerHeight;
+function measure() {
+  vh = innerHeight;
+  anchors = sections.map(s => s.offsetTop + s.offsetHeight / 2 - vh / 2);
+  anchors[0] = 0;
+  lightTop = light.offsetTop;
+}
+function stageAt(y) {
+  if (y <= anchors[0]) return 0;
+  for (let i = 0; i < anchors.length - 1; i++) {
+    if (y < anchors[i + 1]) return i + (y - anchors[i]) / (anchors[i + 1] - anchors[i]);
+  }
+  return anchors.length - 1;
+}
+function chrome() {
+  const y = scrollY;
+  const s = stageAt(y);
+  const active = Math.round(s);
+  railLinks.forEach(a => {
+    const t = +a.dataset.to;
+    const next = railLinks[railLinks.indexOf(a) + 1];
+    const on = active >= t && (!next || active < +next.dataset.to);
+    a.classList.toggle('on', on);
+    on ? a.setAttribute('aria-current', 'step') : a.removeAttribute('aria-current');
+  });
+  rail.classList.toggle('hide', y + vh * .5 > lightTop);
+  top.classList.toggle('on-light', y + 40 > lightTop && y + 40 < lightTop + light.offsetHeight);
+  meter.style.transform = `scaleX(${Math.min(1, y / (document.documentElement.scrollHeight - vh))})`;
+}
+addEventListener('resize', () => { measure(); chrome(); });
+addEventListener('scroll', chrome, { passive: true });
+addEventListener('load', () => { measure(); chrome(); });
+measure(); chrome();
+
+/* headings rise word by word out of their own line */
+document.querySelectorAll('.copy h1, .copy h2').forEach(h => {
+  let n = 0;
+  const walk = el => [...el.childNodes].forEach(nd => {
+    if (nd.nodeType === 3) {
+      const frag = document.createDocumentFragment();
+      nd.textContent.split(/(\s+)/).forEach(part => {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+        const w = document.createElement('span'); w.className = 'w';
+        const inner = document.createElement('span'); inner.textContent = part; inner.style.setProperty('--i', n++);
+        w.appendChild(inner); frag.appendChild(w);
+      });
+      nd.replaceWith(frag);
+    } else if (nd.nodeType === 1) walk(nd);
+  });
+  walk(h);
+});
+
+/* cursor: a hairline square that knows what it is over */
+const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+let seenShock = false;
+if (fine) {
+  const cur = document.createElement('div'); cur.className = 'cursor'; cur.setAttribute('aria-hidden', 'true');
+  cur.innerHTML = '<span class="ring"></span><span class="dot"></span><span class="hint">Click the field</span>';
+  document.body.appendChild(cur);
+  const ring = cur.querySelector('.ring'), dot = cur.querySelector('.dot');
+  let x = innerWidth / 2, y = innerHeight / 2, rx = x, ry = y, shown = false;
+  addEventListener('pointermove', e => { x = e.clientX; y = e.clientY; if (!shown) { cur.classList.add('live'); shown = true; }
+    const hot = e.target.closest('a,button');
+    cur.classList.toggle('hot', !!hot);
+    cur.classList.toggle('on-light', !!e.target.closest('.light'));
+    cur.classList.toggle('hint-on', (!seenShock && !hot && scrollY < innerHeight * .6 && !e.target.closest('.light,footer')) || document.body.classList.contains('over-photo'));
+  }, { passive: true });
+  addEventListener('pointerdown', () => cur.classList.add('press'));
+  addEventListener('pointerup', () => { cur.classList.remove('press'); setTimeout(() => { if (seenShock) cur.classList.remove('hint-on'); }, 0); });
+  document.addEventListener('pointerleave', () => { cur.classList.remove('live'); shown = false; });
+  let lt = performance.now();
+  (function loop(now) {
+    const dt = Math.min(.05, (now - lt) / 1000); lt = now;
+    const k = reduce ? 1 : 1 - Math.exp(-dt * 14);
+    rx += (x - rx) * k; ry += (y - ry) * k;
+    ring.style.transform = `translate3d(${rx}px,${ry}px,0)`;
+    dot.style.transform = `translate3d(${x}px,${y}px,0)`;
+    cur.querySelector('.hint').style.transform = `translate3d(${rx}px,${ry}px,0)`;
+    requestAnimationFrame(loop);
+  })(lt);
+
+  /* actions lean toward the hand */
+  if (!reduce) document.querySelectorAll('.btn, .textlink').forEach(el => {
+    el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .22}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`;
+    });
+    el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+  });
+}
+
+/* the collateral strip drags like a table of documents */
+document.querySelectorAll('.strip').forEach(st => {
+  let down = false, sx = 0, sl = 0, moved = 0;
+  st.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = 0; sx = e.clientX; sl = st.scrollLeft; st.classList.add('drag'); });
+  addEventListener('pointermove', e => { if (!down) return; moved = Math.abs(e.clientX - sx); st.scrollLeft = sl - (e.clientX - sx); });
+  addEventListener('pointerup', () => { if (!down) return; down = false; st.classList.remove('drag'); });
+  st.addEventListener('click', e => { if (moved > 5) e.preventDefault(); }, true);
+});
+
+/* ---------- WebGL ---------- */
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' }); }
+catch (e) { document.documentElement.classList.add('no-webgl'); throw e; }
+THREE.ColorManagement.enabled = false;
+renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+renderer.setClearColor(0x13151d, 1);
+const DPR = Math.min(devicePixelRatio, small ? 1.75 : 2);
+renderer.setPixelRatio(DPR);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, 1, .1, 120);
+
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const smooth = t => t * t * (3 - 2 * t);
+const lerp = (a, b, t) => a + (b - a) * t;
+
+class Stage {
+  constructor(seed) {
+    this.r = rng(seed);
+    this.p = new Float32Array(N * 3); this.a = new Float32Array(N); this.s = new Float32Array(N);
+    this.n = 0;
+    this.perm = Uint32Array.from({ length: N }, (_, i) => i);
+    for (let i = N - 1; i > 0; i--) { const j = (this.r() * (i + 1)) | 0; [this.perm[i], this.perm[j]] = [this.perm[j], this.perm[i]]; }
+    this.dyn = null;
+  }
+  put(x, y, z, a = 0, s = 1) {
+    if (this.n >= N) return -1;
+    const k = this.perm[this.n++];
+    this.p[k * 3] = x; this.p[k * 3 + 1] = y; this.p[k * 3 + 2] = z; this.a[k] = a; this.s[k] = s;
+    return k;
+  }
+  dust(scale = 1) {
+    const r = this.r;
+    while (this.n < N) {
+      const u = r() * 2 - 1, th = r() * Math.PI * 2, rad = (16 + r() * 14) * scale, q = Math.sqrt(1 - u * u);
+      this.put(q * Math.cos(th) * rad, u * rad * .6, q * Math.sin(th) * rad - 6, 0, .45 + r() * .3);
+    }
+    return this;
+  }
+}
+const gauss = r => { let u = 0; for (let i = 0; i < 4; i++) u += r(); return (u - 2) / 1.2; };
+
+/* 0 — the market: scattered contacts */
+function field() {
+  const st = new Stage(11), r = st.r;
+  for (let i = 0; i < N; i++) {
+    const x = (r() - .5) * 34, y = (r() - .5) * 20, z = -r() * 18 + 4;
+    st.put(x, y, z, r() < .012 ? .8 : 0, .55 + r() * .9);
+  }
+  return st;
+}
+
+/* 1 — silos: isolated clusters that never meet */
+function silos() {
+  const st = new Stage(12), r = st.r, K = 15, per = Math.floor(N * .8 / K);
+  const centers = [], meta = [];
+  for (let c = 0; c < K; c++) {
+    const a = c / K * Math.PI * 2 + r() * .4, rad = 4 + r() * 5;
+    centers.push([Math.cos(a) * rad * 1.3, (r() - .5) * 7, Math.sin(a) * rad - 2]);
+  }
+  centers.forEach((c, ci) => {
+    const sp = .35 + r() * .35;
+    for (let i = 0; i < per; i++) {
+      const ox = gauss(r) * sp, oy = gauss(r) * sp, oz = gauss(r) * sp;
+      const k = st.put(c[0] + ox, c[1] + oy, c[2] + oz, 0, .7 + r() * .6);
+      meta.push([k, ci, ox, oy, oz]);
+    }
+  });
+  st.dust();
+  const spd = centers.map(() => (.15 + r() * .35) * (r() < .5 ? -1 : 1));
+  st.dyn = t => {
+    for (const [k, ci, ox, oy, oz] of meta) {
+      const a = t * spd[ci], c = Math.cos(a), s = Math.sin(a), C = centers[ci];
+      st.p[k * 3] = C[0] + ox * c - oz * s; st.p[k * 3 + 1] = C[1] + oy; st.p[k * 3 + 2] = C[2] + ox * s + oz * c;
+    }
+  };
+  return st;
+}
+
+/* 2 — the room: a hosted dinner for sixteen */
+const TABLE = { L: 8, W: 2.4 };
+function table() {
+  const st = new Stage(13), r = st.r, { L, W } = TABLE;
+  const edge = (u) => { // superellipse perimeter
+    const a = u * Math.PI * 2, c = Math.cos(a), s = Math.sin(a), e = .22;
+    return [Math.sign(c) * Math.pow(Math.abs(c), e) * L / 2, Math.sign(s) * Math.pow(Math.abs(s), e) * W / 2];
+  };
+  for (let i = 0; i < 1300; i++) { const [x, z] = edge(i / 1300); st.put(x, 0, z, .15, .9); st.put(x * 1.004, -.08, z * 1.01, 0, .5); }
+  for (let i = 0; i < 1600; i++) { const x = (r() - .5) * (L - .3), z = (r() - .5) * (W - .3); st.put(x, 0, z, 0, .35); }
+  for (let i = 0; i < 160; i++) { const x = (r() - .5) * (L - 2.2); st.put(x, .04 + r() * .05, (r() - .5) * .12, .9, .9); } // runner of candlelight
+  const seats = [];
+  for (let k = 0; k < 7; k++) { const x = -3.3 + k * 1.1; seats.push([x, W / 2 + .75, 1]); seats.push([x, -W / 2 - .75, -1]); }
+  seats.push([L / 2 + .75, 0, 0]); seats.push([-L / 2 - .75, 0, 0]);
+  seats.forEach(([sx, sz, side], idx) => {
+    const host = idx === seats.length - 1, acc = host ? 1 : 0;
+    const cx = sx, cz = side ? sz : 0, px = side ? sx : sx;
+    // head
+    for (let i = 0; i < 110; i++) { const u = r() * 2 - 1, th = r() * 6.283, q = Math.sqrt(1 - u * u); st.put(cx + q * Math.cos(th) * .2, .98 + u * .22, cz + q * Math.sin(th) * .2, acc, 1); }
+    // shoulders
+    for (let i = 0; i < 190; i++) { const u = r(), th = r() * 6.283, q = Math.sqrt(1 - u * u); st.put(cx + q * Math.cos(th) * .42, .2 + u * .5, cz + q * Math.sin(th) * .3, acc * .8, .85); }
+    // chair back arc
+    const ox = side ? 0 : Math.sign(sx) * .38, oz = side ? side * .38 : 0;
+    for (let i = 0; i < 70; i++) { const t = i / 69, y = -.4 + t * 1.25; st.put(cx + ox + (side ? (r() - .5) * .9 : 0), y * (side ? 1 : 1), cz + oz + (side ? 0 : (r() - .5) * .9), 0, .45); }
+    // plate on the table
+    const plx = side ? px : sx - Math.sign(sx) * .95, plz = side ? side * (W / 2 - .45) : 0;
+    for (let i = 0; i < 46; i++) { const a = i / 46 * 6.283; st.put(plx + Math.cos(a) * .24, .02, plz + Math.sin(a) * .24, host ? 1 : .45, .6); }
+  });
+  st.dust();
+  return st;
+}
+
+/* 3 — the region: Asia Pacific from South Australia */
+const LAND = [ // [lat, lon, rLat, rLon]
+  [-25, 134, 11, 18], [-19, 145, 6, 5], [-32, 117, 4, 4], [-42, 146.5, 1.6, 1.6], [-41, 174, 5, 2.5],
+  [-6, 145, 3, 7], [-2, 113, 4, 6], [-7, 110, 1.6, 7], [0, 102, 5, 2.6], [-2, 121, 3, 2.2], [12, 123, 6, 2.5],
+  [15, 101, 9, 6], [22, 79, 12, 9], [36, 104, 13, 22], [50, 100, 9, 34], [36.5, 138, 5, 2.6], [43, 142.5, 2, 2], [37, 127.5, 2.5, 1.6], [23.5, 121, 1.5, .8], [8, 81, 1.6, 1]
+];
+function ll(lat, lon, R) {
+  const p = lat * Math.PI / 180, l = (lon - 128) * Math.PI / 180;
+  const x = R * Math.cos(p) * Math.sin(l), y = R * Math.sin(p), z = R * Math.cos(p) * Math.cos(l);
+  const tilt = .32, cy = Math.cos(tilt), sy = Math.sin(tilt); // tilt north away so the south faces us
+  return [x, y * cy + z * sy, -y * sy + z * cy];
+}
+const GLOBE_R = 4.2, ADELAIDE = [-34.93, 138.6];
+const CITIES = [[1.35, 103.82], [-6.2, 106.8], [14.6, 121], [22.3, 114.2], [31.2, 121.5], [35.7, 139.7], [37.55, 127], [10.8, 106.7], [3.14, 101.7], [-36.85, 174.76]];
+function globe() {
+  const st = new Stage(14), r = st.r, R = GLOBE_R;
+  const M = Math.floor(N * .22);
+  for (let i = 0; i < M; i++) { // ocean lattice
+    const y = 1 - (i + .5) / M * 2, rad = Math.sqrt(1 - y * y), th = i * 2.39996;
+    const lat = Math.asin(y) * 180 / Math.PI, lon = (th * 180 / Math.PI) % 360 - 180;
+    const [x, yy, z] = ll(lat, lon, R);
+    st.put(x, yy, z, 0, .48);
+  }
+  let land = 0, tries = 0;
+  while (land < N * .5 && tries < 4e5) {
+    tries++;
+    const lat = (r() * 2 - 1) * 70, lon = 60 + r() * 130;
+    let inside = false;
+    for (const [a, b, ra, rb] of LAND) { const d = ((lat - a) / ra) ** 2 + ((lon - b) / rb) ** 2; if (d < 1 - r() * .25) { inside = true; break; } }
+    if (!inside) continue;
+    const [x, y, z] = ll(lat, lon, R * 1.004);
+    st.put(x, y, z, lat < -10 && lon > 112 && lon < 155 ? .35 : 0, .9 + r() * .3);
+    land++;
+  }
+  const [ax, ay, az] = ll(...ADELAIDE, R * 1.01);
+  for (let i = 0; i < 60; i++) st.put(ax + gauss(r) * .05, ay + gauss(r) * .05, az + gauss(r) * .05, 1, 1.1);
+  st.dust();
+  return st;
+}
+
+/* 4 — positioning: a fanned deck of documents */
+function deck() {
+  const st = new Stage(15), r = st.r, W = 3, H = 4.24;
+  const sheets = [
+    { rz: .2, ry: -.5, x: -1.6, y: .1, z: -1, acc: 0 },
+    { rz: .06, ry: -.42, x: -.4, y: -.05, z: -.4, acc: .1 },
+    { rz: -.1, ry: -.34, x: .9, y: -.2, z: .3, acc: 1 }
+  ];
+  sheets.forEach((sh, si) => {
+    const cz = Math.cos(sh.rz), sz = Math.sin(sh.rz), cy = Math.cos(sh.ry), sy = Math.sin(sh.ry);
+    const P = (u, v, a, s) => { // u,v in sheet space
+      const x1 = u * cz - v * sz, y1 = u * sz + v * cz;
+      return st.put(x1 * cy + sh.x, y1 + sh.y, -x1 * sy + sh.z, a, s);
+    };
+    const front = si === 2;
+    for (let i = 0; i < 420; i++) { const t = i / 420 * 2 * (W + H); let u, v;
+      if (t < W) { u = -W / 2 + t; v = H / 2; } else if (t < W + H) { u = W / 2; v = H / 2 - (t - W); } else if (t < 2 * W + H) { u = W / 2 - (t - W - H); v = -H / 2; } else { u = -W / 2; v = -H / 2 + (t - 2 * W - H); }
+      P(u, v, front ? .35 : 0, 1);
+    }
+    for (let i = 0; i < 700; i++) P((r() - .5) * W, (r() - .5) * H, 0, .32);
+    const m = .32;
+    // title block
+    for (let row = 0; row < 3; row++) for (let u = 0; u < (row === 2 ? .45 : .72) * (W - 2 * m); u += .028) P(-W / 2 + m + u, H / 2 - m - .1 - row * .1, front ? 1 : sh.acc, row === 2 ? .9 : 1.2);
+    // body copy lines
+    for (let line = 0; line < 13; line++) {
+      const y = H / 2 - 1.05 - line * .17, len = (line % 5 === 4 ? .45 : .7 + r() * .28) * (W - 2 * m);
+      if (front && line >= 6 && line <= 10) continue;
+      for (let u = 0; u < len; u += .055) P(-W / 2 + m + u, y, 0, .8);
+    }
+    if (front) { // a small bar chart on the front sheet
+      const bars = [.35, .55, .48, .8, .95];
+      bars.forEach((b, i) => { for (let k = 0; k < 90; k++) P(-W / 2 + m + .1 + i * .32 + r() * .2, H / 2 - 2.95 + r() * b * .78, .75, .6); });
+    }
+  });
+  st.dust();
+  return st;
+}
+
+/* 5 — amplify: the message travelling outward */
+function broadcast() {
+  const st = new Stage(16), r = st.r, RINGS = 15, per = Math.floor(N * .78 / RINGS), meta = [];
+  for (let k = 0; k < RINGS; k++) for (let i = 0; i < per; i++) {
+    const a = i / per * 6.283 + r() * .02, base = k / RINGS;
+    meta.push([st.put(0, 0, 0, 0, 1), a, base]);
+  }
+  st.dust();
+  const MAXR = 9.5;
+  st.dyn = t => {
+    for (const [k, a, base] of meta) {
+      const f = (base + t * .045) % 1, rr = .15 + f * MAXR;
+      st.p[k * 3] = Math.cos(a) * rr; st.p[k * 3 + 2] = Math.sin(a) * rr;
+      st.p[k * 3 + 1] = Math.sin(rr * 1.3 - t * 1.6) * .18 * (1 - f);
+      st.a[k] = clamp(1 - f * 3.2); st.s[k] = .35 + (1 - f) * .9;
+    }
+  };
+  st.dyn(0);
+  return st;
+}
+
+/* 6 — Bowen: a 182 km line across country */
+const PIPE = new THREE.CatmullRomCurve3([
+  [-10.5, 0, 3.2], [-7, 0, 1.4], [-4.2, 0, 2.3], [-1.5, 0, .2], [1.2, 0, -.9], [3.8, 0, .4], [6.6, 0, -1.6], [10.2, 0, -2.6]
+].map(([x, y, z]) => new THREE.Vector3(x, 0, z)));
+const terrainH = (x, z) => .55 * Math.sin(x * .33 + 1) + .32 * Math.sin(z * .7 + x * .18) + .16 * Math.sin(x * 1.07 + z * .93) + .08 * Math.sin(x * 2.3 - z * 1.7);
+PIPE.points.forEach(p => p.y = terrainH(p.x, p.z) - .18);
+function pipeline() {
+  const st = new Stage(17), r = st.r;
+  const gx = small ? 80 : 120, gz = small ? 36 : 52;
+  for (let i = 0; i < gx; i++) for (let j = 0; j < gz; j++) {
+    const x = -12 + i / (gx - 1) * 24 + (r() - .5) * .05, z = -5.5 + j / (gz - 1) * 11;
+    const fade = 1 - Math.pow(Math.abs(z) / 5.5, 3);
+    st.put(x, terrainH(x, z), z, 0, (.3 + .35 * fade) * (.85 + r() * .3));
+  }
+  const pts = PIPE.getSpacedPoints(900);
+  pts.forEach(p => { for (let k = 0; k < 2; k++) st.put(p.x + gauss(r) * .03, p.y + gauss(r) * .03, p.z + gauss(r) * .03, 1, .8); });
+  st.dust();
+  return st;
+}
+
+/* 7 — TBH: data hall and wind */
+const TURB = [[4.2, -1.6], [6.3, -3.2], [7.9, -.6]];
+function towers() {
+  const st = new Stage(18), r = st.r, meta = [], lights = [];
+  const boxEdges = (x0, y0, z0, w, h, d, sp, a, s) => {
+    const E = [[[0, 0, 0], [w, 0, 0]], [[0, h, 0], [w, h, 0]], [[0, 0, d], [w, 0, d]], [[0, h, d], [w, h, d]], [[0, 0, 0], [0, h, 0]], [[w, 0, 0], [w, h, 0]], [[0, 0, d], [0, h, d]], [[w, 0, d], [w, h, d]], [[0, 0, 0], [0, 0, d]], [[w, 0, 0], [w, 0, d]], [[0, h, 0], [0, h, d]], [[w, h, 0], [w, h, d]]];
+    for (const [A, B] of E) { const len = Math.hypot(B[0] - A[0], B[1] - A[1], B[2] - A[2]), n = Math.ceil(len / sp); for (let i = 0; i <= n; i++) { const t = i / n; st.put(x0 + lerp(A[0], B[0], t), y0 + lerp(A[1], B[1], t), z0 + lerp(A[2], B[2], t), a, s); } }
+  };
+  for (let i = 0; i < 6; i++) for (let j = 0; j < 3; j++) {
+    const x = -6 + i * 1.15, z = -1.6 + j * 1.5, h = 2.1;
+    boxEdges(x, 0, z, .78, h, .55, .045, .08, .9);
+    for (let row = 0; row < 9; row++) for (let c = 0; c < 4; c++) { const k = st.put(x + .14 + c * .16, .25 + row * .2, z + .552, 0, .7); lights.push([k, r() * 6.28, .6 + r() * 2.2]); }
+  }
+  for (let i = 0; i < 1500; i++) { const x = -7.5 + r() * 18, z = -5 + r() * 8; st.put(x, -.02, z, 0, .4); }
+  TURB.forEach(([tx, tz], ti) => {
+    const H = 3.6 + ti * .3;
+    for (let i = 0; i < 90; i++) { const y = i / 89 * H; st.put(tx + (r() - .5) * .04 * (1 - y / H + .3), y, tz, 0, .9); }
+    for (let b = 0; b < 3; b++) for (let i = 0; i < 70; i++) { const d = .12 + i / 69 * 1.7; meta.push([st.put(tx, H, tz, .3, 1 - d * .15), ti, b, d, H, tx, tz]); }
+    for (let i = 0; i < 20; i++) st.put(tx + gauss(r) * .05, H + gauss(r) * .05, tz + .05, 1, .9);
+  });
+  st.dust();
+  st.dyn = t => {
+    for (const [k, ti, b, d, H, tx, tz] of meta) {
+      const a = t * (.9 + ti * .15) + b * 2.0944 + ti;
+      st.p[k * 3] = tx + Math.cos(a) * d; st.p[k * 3 + 1] = H + Math.sin(a) * d; st.p[k * 3 + 2] = tz + .08;
+    }
+    for (const [k, ph, sp] of lights) st.a[k] = Math.sin(t * sp + ph) > .55 ? 1 : 0;
+  };
+  st.dyn(0);
+  return st;
+}
+
+/* 8 — CO2CRC: carbon, stored deep */
+function strata() {
+  const st = new Stage(19), r = st.r, bubbles = [];
+  const layers = [1.6, .7, -.25, -1.2, -2.2, -3.1];
+  const lh = (x, z, k) => layers[k] + .22 * Math.sin(x * .45 + k) + .12 * Math.sin(z * .8 + k * 2);
+  layers.forEach((_, k) => {
+    const n = k === 0 ? 2200 : 1050;
+    for (let i = 0; i < n; i++) { const x = (r() - .5) * 11, z = (r() - .5) * 5; st.put(x, lh(x, z, k), z, 0, k === 0 ? .62 : .5); }
+    for (let i = 0; i < 260; i++) { const x = -5.5 + i / 259 * 11; st.put(x, lh(x, 2.5, k), 2.5, .12, 1.05); } // section face
+  });
+  for (let i = 0; i < 1500; i++) { // reservoir held under the cap rock
+    const u = r() * 6.283, rad = Math.sqrt(r()), x = Math.cos(u) * rad * 3.2, z = Math.sin(u) * rad * 1.8;
+    st.put(x, lh(x, z, 5) + .15 + r() * (lh(x, z, 4) - lh(x, z, 5) - .35) * (1 - rad * rad), z, 1, .65 + r() * .3);
+  }
+  for (let i = 0; i < 260; i++) { const y = 2.6 - i / 259 * 5.4; st.put((r() - .5) * .04, y, (r() - .5) * .04, .55, .7); }
+  for (let i = 0; i < 160; i++) bubbles.push([st.put(0, 0, 0, 1, 1), r()]);
+  boxEdgesSimple(st, -.35, lh(0, 0, 0), -.25, .7, .45, .5);
+  st.dust();
+  st.dyn = t => { for (const [k, ph] of bubbles) { const f = (ph + t * .12) % 1; st.p[k * 3] = Math.sin(f * 40 + ph * 9) * .05; st.p[k * 3 + 1] = 2.6 - f * 5.2; st.p[k * 3 + 2] = Math.cos(f * 37) * .05; st.s[k] = .9 * Math.sin(f * Math.PI) + .2; } };
+  st.dyn(0);
+  return st;
+}
+function boxEdgesSimple(st, x, y, z, w, h, d) {
+  for (let i = 0; i < 120; i++) { const t = i / 120; st.put(x + w * t, y + h, z, .3, .6); st.put(x + w * t, y + h, z + d, .3, .6); st.put(x, y + h * t, z, .3, .6); st.put(x + w, y + h * t, z + d, .3, .6); }
+}
+
+/* 9 — connect: everything gathers into the asterisk */
+function asterisk() {
+  const st = new Stage(20), r = st.r, meta = [];
+  const COUNT = Math.floor(N * .62), Lr = 3.3;
+  for (let i = 0; i < COUNT; i++) {
+    const k = i % 6, ang = k * Math.PI / 3 + Math.PI / 2;
+    const t = Math.pow(r(), .9), rad = .12 + t * Lr, w = .62 * Math.pow(Math.sin(Math.PI * Math.min(1, t * 1.02)), .85) * (1 - t * .25);
+    const u = (r() * 2 - 1) * w, c = Math.cos(ang), s = Math.sin(ang);
+    const x = c * rad - s * u, y = s * rad + c * u, z = (r() - .5) * .16;
+    meta.push([st.put(x, y, z, 1, .65 + r() * .35), x, y, z]);
+  }
+  for (let i = 0; i < N * .12; i++) { const a = r() * 6.283, rr = 5.2 + gauss(r) * .25; st.put(Math.cos(a) * rr, Math.sin(a) * rr, (r() - .5) * .3, .15, .45); }
+  st.dust(1.2);
+  st.dyn = t => { const a = t * .08, c = Math.cos(a), s = Math.sin(a); for (const [k, x, y, z] of meta) { st.p[k * 3] = x * c - y * s; st.p[k * 3 + 1] = x * s + y * c; st.p[k * 3 + 2] = z; } };
+  st.dyn(0);
+  return st;
+}
+
+const STAGES = [field(), silos(), table(), globe(), deck(), broadcast(), pipeline(), towers(), strata(), asterisk()];
+
+/* camera choreography: [position, target, screen shift x (+ = scene sits right), y] */
+const D = small;
+const SHOTS = [
+  [[0, 0, 13], [0, 0, 0], .12, 0],
+  [[0, 1.5, 15], [0, 0, -2], .2, 0],
+  [[5.4, 5.2, 7.2], [-.5, .2, 0], .22, 0],
+  [[0, -.4, 14.5], [0, .2, 0], -.2, 0],
+  [[1.2, .6, 9.6], [-.2, -.2, 0], .22, 0],
+  [[0, 6.2, 9.6], [0, -.4, 0], -.18, 0],
+  [[-2.2, 8.4, 9.6], [1.8, -.6, -1], .3, 0],
+  [[6.2, 4.4, 9.8], [-.6, 1.1, -1.3], -.3, 0],
+  [[7.2, 2.6, 10], [0, -.6, 0], .2, 0],
+  [[0, 0, 11.5], [0, 0, 0], 0, .16]
+].map(([p, t, sx, sy], i) => ({ p: new THREE.Vector3(...p).multiplyScalar(D ? 1.28 : 1), t: new THREE.Vector3(...t), sx: D ? 0 : sx, sy: D ? (i === 0 ? .2 : .24) : sy }));
+
+/* the gold point: where PitchPoint is in each chapter */
+const pointAt = (i, t, out) => {
+  switch (i) {
+    case 0: return out.set(2.6 + mouse.sx * 1.8, .5 + mouse.sy * 1.2, 1.5);
+    case 1: return out.set(Math.cos(t * .5) * 3.5, Math.sin(t * .8) * 1.2, Math.sin(t * .5) * 2 - 1);
+    case 2: return out.set(-TABLE.L / 2 - .75, 1.55, 0);
+    case 3: return out.set(...ll(...ADELAIDE, GLOBE_R * 1.03));
+    case 4: return out.set(1.75, 1.75, .75);
+    case 5: return out.set(0, .25, 0);
+    case 6: { const k = clamp(pipeProgress); return out.copy(PIPE.getPointAt(Math.max(.001, k))).add(new THREE.Vector3(0, .25, 0)); }
+    case 7: return out.set(TURB[0][0], 3.6, TURB[0][1] + .2);
+    case 8: return out.set(0, 2.85, 0);
+    case 9: return out.set(0, 0, .3);
+  }
+};
+
+/* ---------- particles ---------- */
+const geo = new THREE.BufferGeometry();
+const pos = new Float32Array(N * 3), acc = new Float32Array(N), siz = new Float32Array(N), seed = new Float32Array(N);
+const sr = rng(99); for (let i = 0; i < N; i++) seed[i] = sr() * 6.283;
+geo.setAttribute('position', new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage));
+geo.setAttribute('aAcc', new THREE.BufferAttribute(acc, 1).setUsage(THREE.DynamicDrawUsage));
+geo.setAttribute('aSize', new THREE.BufferAttribute(siz, 1).setUsage(THREE.DynamicDrawUsage));
+geo.setAttribute('aSeed', new THREE.BufferAttribute(seed, 1));
+const uniforms = {
+  uTime: { value: 0 }, uSize: { value: 40 * DPR }, uMouse: { value: new THREE.Vector2(9, 9) }, uAspect: { value: 1 },
+  uSmoke: { value: new THREE.Color(0xf1ece7) }, uGold: { value: new THREE.Color(0xc9b68a) }, uHover: { value: 1 },
+  uMouseVel: { value: 0 }, uShock: { value: new THREE.Vector2(9, 9) }, uShockT: { value: 99 }, uFocus: { value: 12 }
+};
+const mat = new THREE.ShaderMaterial({
+  uniforms, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+  vertexShader: `
+    attribute float aAcc; attribute float aSize; attribute float aSeed;
+    uniform float uTime, uSize, uAspect, uHover, uMouseVel, uShockT, uFocus; uniform vec2 uMouse, uShock;
+    varying float vAcc; varying float vAlpha; varying float vBlur;
+    void main(){
+      vec3 p = position;
+      p += vec3(sin(uTime*.6+aSeed), cos(uTime*.5+aSeed*1.7), sin(uTime*.4+aSeed*2.3)) * .03;
+      vec4 mv = modelViewMatrix * vec4(p,1.);
+      vec4 clip = projectionMatrix * mv;
+      vec2 ndc = clip.xy / clip.w;
+      vec2 asp = vec2(uAspect, 1.);
+      // the cursor parts the field; a faster hand parts it wider
+      vec2 d = (ndc - uMouse) * asp;
+      float l = length(d);
+      float halo = smoothstep(.3 + uMouseVel * .22, 0., l) * uHover;
+      ndc += (d / max(l, 1e-4)) / asp * halo * (.04 + uMouseVel * .05);
+      // click: a ring of attention travels outward
+      vec2 ds = (ndc - uShock) * asp;
+      float rs = length(ds);
+      float ring = exp(-pow((rs - uShockT * 1.5) * 9., 2.)) * exp(-uShockT * 1.6);
+      ndc += (ds / max(rs, 1e-4)) / asp * ring * .05;
+      clip.xy = ndc * clip.w;
+      gl_Position = clip;
+      vAcc = clamp(aAcc + halo * .85 + ring * 1.2, 0., 1.);
+      float depth = -mv.z;
+      // depth of field: dots away from the focal plane open up and soften
+      vBlur = clamp((abs(depth - uFocus) - 1.5) / (uFocus * .9), 0., 1.);
+      float grow = 1. + vBlur * 1.3;
+      vAlpha = smoothstep(48., 6., depth) * (.42 + .5 * min(aSize, 1.)) * (1. + halo * .6 + ring * 1.4) / (grow * grow);
+      gl_PointSize = aSize * uSize / depth * (1. + vAcc * .35) * grow;
+    }`,
+  fragmentShader: `
+    uniform vec3 uSmoke, uGold; varying float vAcc; varying float vAlpha; varying float vBlur;
+    void main(){
+      float d = length(gl_PointCoord - .5);
+      float a = smoothstep(.5, mix(.1, .02, vBlur), d);
+      a *= mix(a, 1., vBlur * .6) * vAlpha;
+      vec3 c = mix(uSmoke * .7, uGold * 1.1, vAcc);
+      gl_FragColor = vec4(c * a, a);
+    }`
+});
+const points = new THREE.Points(geo, mat);
+points.frustumCulled = false;
+scene.add(points);
+
+/* gold point glow + its wake */
+const glowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d'); const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64); gr.addColorStop(0, 'rgba(255,240,205,1)'); gr.addColorStop(.12, 'rgba(214,190,140,.9)'); gr.addColorStop(.4, 'rgba(164,148,111,.25)'); gr.addColorStop(1, 'rgba(164,148,111,0)'); g.fillStyle = gr; g.fillRect(0, 0, 128, 128); return new THREE.CanvasTexture(c); })();
+const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: .5 }));
+glow.scale.setScalar(1.6); scene.add(glow);
+const core = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: .8 }));
+core.scale.setScalar(.45); scene.add(core);
+const TRAIL = 30;
+const trailPos = new Float32Array(TRAIL * 3), trailCol = new Float32Array(TRAIL * 3);
+const gold = new THREE.Color(0xc9b68a);
+for (let i = 0; i < TRAIL; i++) { const f = Math.pow(1 - i / TRAIL, 1.6); trailCol.set([gold.r * f, gold.g * f, gold.b * f], i * 3); }
+const trailGeo = new THREE.BufferGeometry();
+trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPos, 3).setUsage(THREE.DynamicDrawUsage));
+trailGeo.setAttribute('color', new THREE.BufferAttribute(trailCol, 3));
+const trail = new THREE.Line(trailGeo, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+trail.frustumCulled = false; scene.add(trail);
+let trailPrimed = false;
+
+/* gold lines: the pipeline, and reach across the region */
+const goldLine = (o = .9) => new THREE.LineBasicMaterial({ color: 0xc9b68a, transparent: true, opacity: o, blending: THREE.AdditiveBlending, depthWrite: false });
+const pipeGeo = new THREE.BufferGeometry().setFromPoints(PIPE.getSpacedPoints(600).map(p => p.add(new THREE.Vector3(0, .02, 0))));
+const pipeLine = new THREE.Line(pipeGeo, goldLine()); scene.add(pipeLine);
+const arcs = CITIES.map(c => {
+  const A = new THREE.Vector3(...ll(...ADELAIDE, GLOBE_R)), B = new THREE.Vector3(...ll(...c, GLOBE_R));
+  const pts = []; for (let i = 0; i <= 80; i++) { const t = i / 80; const v = A.clone().lerp(B, t).normalize().multiplyScalar(GLOBE_R * (1 + .16 * Math.sin(Math.PI * t) * A.distanceTo(B) / GLOBE_R)); pts.push(v); }
+  const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), goldLine(.75)); scene.add(l); return l;
+});
+
+/* ---------- annotations pinned to the scene ---------- */
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const TAGS = [
+  { s: 2, text: 'You, at the head of the table', at: () => V(-TABLE.L / 2 - .75, 1.35, 0), side: 'l' },
+  { s: 2, text: 'Decision-makers, invited by us', at: () => V(1.1, 1.3, TABLE.W / 2 + .75) },
+  { s: 3, text: 'Adelaide, South Australia', at: () => V(...ll(...ADELAIDE, GLOBE_R * 1.03)) },
+  { s: 3, text: 'Asia Pacific markets', at: () => V(...ll(18, 108, GLOBE_R * 1.02)), side: 'l' },
+  { s: 4, text: 'Capability statement', at: () => V(-3, 1.9, -1), side: 'l' },
+  { s: 4, text: 'Tender response', at: () => V(-1.9, -2.1, -.4), side: 'l' },
+  { s: 4, text: 'Pitch deck', at: () => V(2.4, -1.6, .2) },
+  { s: 5, text: 'Media', at: () => V(3.2, 0, 1.2) },
+  { s: 5, text: 'Launches', at: () => V(-3.4, 0, 2.2), side: 'l' },
+  { s: 5, text: 'Statements & speeches', at: () => V(-.5, 0, -4.4) },
+  { s: 6, text: '0 km', at: () => PIPE.getPointAt(0).clone().add(V(0, .2, 0)), side: 'l' },
+  { s: 6, text: '182 km', at: () => PIPE.getPointAt(Math.max(.001, pipeProgress)).clone().add(V(0, .25, 0)), live: () => `${Math.round(182 * pipeProgress)} km` },
+  { s: 7, text: 'Data centres', at: () => V(-3.7, 2.3, -.1), side: 'l' },
+  { s: 7, text: 'Renewable energy', at: () => V(TURB[1][0], 3.9, TURB[1][1]) },
+  { s: 8, text: 'Injection well', at: () => V(0, 2.75, 0) },
+  { s: 8, text: 'Cap rock', at: () => V(-4, -1.9, 2.5), side: 'l' },
+  { s: 8, text: 'Storage reservoir', at: () => V(2.6, -2.7, .4) }
+];
+/* ---------- their photographs, set into the scene behind the dots ---------- */
+// screen-space placement: n = [x, y] centre in NDC on the scene side, f = width as a share of the screen; m = phone override
+const PLATES = [
+  { s: 2, src: 'assets/photos/room-dinner.jpg', n: [.42, .5], f: .25, m: [-.25, .64, .52], z: -10, cap: 'Hosted dinner, chef’s table' },
+  { s: 2, src: 'assets/photos/room-private-dining.jpg', n: [.8, -.52], f: .15, m: [.5, .28, .36], z: -8, cap: 'Private dining room' },
+  { s: 3, src: 'assets/photos/region-asia-pacific.jpg', n: [-.5, -.56], f: .3, m: [.25, .3, .6], z: -11 },
+  { s: 4, src: 'assets/photos/work-indema-capability.jpg', n: [.74, -.46], f: .2, m: [.38, .36, .46], z: -9, cap: 'InDeMa Properties · Capability statement' },
+  { s: 5, src: 'assets/photos/amplify-communications.jpg', n: [-.62, .56], f: .21, m: [-.28, .64, .5], z: -10, cap: 'Communications' },
+  { s: 6, src: 'assets/photos/bowen-pipeline-site.jpg', n: [.46, .56], f: .3, m: [.12, .66, .66], z: -11, cap: 'The Bowen Pipeline Company' },
+  { s: 6, src: 'assets/photos/bowen-pipeline-section.jpg', n: [.84, -.5], f: .13, m: [-.5, .3, .3], z: -8 },
+  { s: 7, src: 'assets/photos/tbh-turbine-dawn.jpg', n: [-.5, -.56], f: .33, m: [0, .32, .74], z: -11, cap: 'TBH Consulting' },
+  { s: 7, src: 'assets/photos/tbh-data-centre.jpg', n: [-.84, .5], f: .13, m: [-.5, .72, .32], z: -8 },
+  { s: 8, src: 'assets/photos/work-co2crc-prospectus.jpg', n: [.66, .18], f: .15, m: [.45, .52, .34], z: -9, cap: 'CO2CRC · Membership prospectus' }
+];
+const plateGroup = new THREE.Group(); scene.add(plateGroup);
+const plateGeo = new THREE.PlaneGeometry(1, 1);
+const texLoader = new THREE.TextureLoader();
+const plateMat = () => new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, depthTest: false,
+  uniforms: {
+    tMap: { value: null }, uOpacity: { value: 0 }, uReveal: { value: 0 }, uColor: { value: 0 },
+    uNavy: { value: new THREE.Color(0x13151d) }, uSmoke: { value: new THREE.Color(0xf1ece7) }, uGold: { value: new THREE.Color(0xc9b68a) }
+  },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+  fragmentShader: `
+    uniform sampler2D tMap; uniform float uOpacity, uReveal, uColor; uniform vec3 uNavy, uSmoke, uGold; varying vec2 vUv;
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+    float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3. - 2. * f);
+      return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y); }
+    void main(){
+      vec3 tex = texture2D(tMap, vUv).rgb;
+      float l = dot(tex, vec3(.299, .587, .114));
+      // at rest the photograph is printed in the brand's two inks, with gold in the mid-tones
+      vec3 duo = mix(uNavy * 1.35, uSmoke * .6, pow(smoothstep(.02, .98, l), .8));
+      duo = mix(duo, uGold, .3 * smoothstep(.2, .55, l) * smoothstep(.9, .55, l));
+      vec3 col = mix(duo, tex * .86, uColor);
+      // it arrives by dissolving in, along a gold burn line
+      float n = noise(vUv * vec2(9., 6.) + 4.) * .55 + (1. - vUv.y) * .3 + vUv.x * .15;
+      float th = uReveal * 1.15;
+      float a = 1. - smoothstep(th - .05, th, n);
+      float edge = (1. - smoothstep(0., .045, abs(n - th + .02))) * step(.002, uReveal) * (1. - step(.995, uReveal));
+      col += uGold * edge * 1.4;
+      vec2 px = fwidth(vUv) * 1.25;
+      float frame = max(max(step(vUv.x, px.x), step(1. - px.x, vUv.x)), max(step(vUv.y, px.y), step(1. - px.y, vUv.y)));
+      col = mix(col, uGold, frame * .85 * a);
+      gl_FragColor = vec4(col, max(a, edge) * uOpacity);
+    }`
+});
+PLATES.forEach(pl => {
+  pl.mesh = new THREE.Mesh(plateGeo, plateMat());
+  pl.mesh.renderOrder = -1; pl.mesh.visible = false; pl.hover = 0; pl.ready = false;
+  pl.mesh.userData.plate = pl;
+  plateGroup.add(pl.mesh);
+  texLoader.load(pl.src, tx => {
+    tx.minFilter = THREE.LinearFilter; tx.generateMipmaps = false;
+    pl.aspect = tx.image.width / tx.image.height;
+    pl.mesh.material.uniforms.tMap.value = tx; pl.ready = true;
+  });
+  if (pl.cap) TAGS.push({ s: pl.s, text: pl.cap, photo: true, at: () => pl.mesh.localToWorld(V(-.5, -.5, 0)) });
+});
+const ray = new THREE.Raycaster(), rayNdc = new THREE.Vector2();
+let hoveredPlate = null, viewSX = 0, viewSY = 0;
+const hintEl = document.querySelector('.cursor .hint');
+function updatePlates(dt, sCur) {
+  plateGroup.position.copy(camera.position); plateGroup.quaternion.copy(camera.quaternion);
+  const k = 1 - Math.exp(-dt * 6);
+  for (const pl of PLATES) {
+    const d = sCur - pl.s, wt = clamp(1 - Math.abs(d) * 1.35);
+    const on = pl.ready && wt > .01;
+    pl.mesh.visible = on;
+    if (!on) continue;
+    pl.hover += ((hoveredPlate === pl ? 1 : 0) - pl.hover) * k;
+    // solve the camera-space position from the wanted screen position, view offset included
+    const H = -pl.z * Math.tan(camera.fov * Math.PI / 360), W = H * camera.aspect;
+    const [nx, ny, f] = small ? pl.m : [...pl.n, pl.f];
+    const ww = f * 2 * W * (1 + pl.hover * .06);
+    pl.mesh.scale.set(ww, ww / pl.aspect, 1);
+    pl.mesh.position.set((nx - 2 * viewSX) * W, (ny + d * .9 - 2 * viewSY) * H, pl.z + pl.hover * .8);
+    pl.mesh.rotation.set(mouse.sy * .05, mouse.sx * .08 - nx * .12, 0);
+    const u = pl.mesh.material.uniforms;
+    u.uReveal.value = smooth(clamp((wt - .15) / .6));
+    u.uOpacity.value = smooth(clamp(wt * 1.6)) * (.8 + pl.hover * .2);
+    u.uColor.value = pl.hover;
+  }
+  plateGroup.updateMatrixWorld(true);
+  // what is the hand over?
+  hoveredPlate = null;
+  if (mouse.active) {
+    rayNdc.set(mouse.x, mouse.y); ray.setFromCamera(rayNdc, camera);
+    const hit = ray.intersectObjects(PLATES.filter(p => p.mesh.visible && p.mesh.material.uniforms.uReveal.value > .6).map(p => p.mesh), false)[0];
+    if (hit) hoveredPlate = hit.object.userData.plate;
+  }
+  document.body.classList.toggle('over-photo', !!hoveredPlate);
+  if (hintEl) hintEl.textContent = hoveredPlate ? 'Full colour' : 'Click the field';
+}
+
+const tagLayer = document.createElement('div'); tagLayer.className = 'tags'; tagLayer.setAttribute('aria-hidden', 'true');
+document.body.insertBefore(tagLayer, document.querySelector('main'));
+TAGS.forEach(tg => {
+  tg.el = document.createElement('div'); tg.el.className = 'tag' + (tg.side === 'l' ? ' l' : '') + (tg.photo ? ' photo' : '');
+  tg.el.innerHTML = '<i></i><s></s><b></b>'; tg.b = tg.el.querySelector('b'); tg.b.textContent = tg.text;
+  tagLayer.appendChild(tg.el);
+});
+const proj = new THREE.Vector3();
+function placeTags(sCur) {
+  const w = innerWidth, h = innerHeight;
+  for (const tg of TAGS) {
+    const wt = clamp(1 - Math.abs(sCur - tg.s) * 2.2);
+    if (wt < .02) { if (tg.vis) { tg.el.style.opacity = 0; tg.el.classList.remove('on'); tg.vis = false; } continue; }
+    proj.copy(tg.at()).project(camera);
+    const x = (proj.x + 1) / 2 * w, y = (1 - proj.y) / 2 * h;
+    const tw = tg.w || (tg.w = tg.el.offsetWidth);
+    const left = !tg.photo && (tg.side === 'l' ? x - tw > 16 : x + tw > w - 24);
+    tg.el.classList.toggle('l', left);
+    tg.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) translate(${left ? '-100%' : '0'},${tg.photo ? '10px' : '-50%'})`;
+    tg.el.style.opacity = smooth(clamp((wt - .2) / .5));
+    tg.el.classList.toggle('on', wt > .55);
+    if (tg.live) { tg.b.textContent = tg.live(); tg.w = 0; }
+    tg.vis = true;
+  }
+}
+
+/* ---------- post: bloom, then a lens that reacts to how fast you move ---------- */
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), small ? .5 : .6, .5, .42);
+composer.addPass(bloom);
+const lens = new ShaderPass({
+  uniforms: { tDiffuse: { value: null }, uTime: { value: 0 }, uVel: { value: 0 }, uAspect: { value: 1 }, uRes: { value: new THREE.Vector2(1, 1) }, uGrain: { value: reduce ? 0 : .03 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
+  fragmentShader: `
+    uniform sampler2D tDiffuse; uniform float uTime, uVel, uAspect, uGrain; uniform vec2 uRes; varying vec2 vUv;
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+    void main(){
+      vec2 c = vUv - .5;
+      float r2 = dot(c * vec2(uAspect, 1.), c * vec2(uAspect, 1.));
+      vec2 uv = .5 + c * (1. - uVel * .05 * r2);
+      vec2 off = c * (.0018 + uVel * .016) * (.4 + r2);
+      vec3 col = vec3(texture2D(tDiffuse, uv + off).r, texture2D(tDiffuse, uv).g, texture2D(tDiffuse, uv - off).b);
+      float vig = smoothstep(.95, .2, length(c * vec2(1., 1.15)));
+      col *= mix(.62, 1., vig);
+      col += (hash(floor(vUv * uRes) + fract(uTime * 7.) * 91.) - .5) * uGrain;
+      gl_FragColor = vec4(col, 1.);
+    }`
+});
+composer.addPass(new OutputPass());
+composer.addPass(lens);
+
+/* ---------- input ---------- */
+const mouse = { x: 9, y: 9, sx: 0, sy: 0, px: 0, py: 0, vel: 0, active: false };
+addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse') return;
+  mouse.x = e.clientX / innerWidth * 2 - 1; mouse.y = -(e.clientY / innerHeight) * 2 + 1; mouse.active = true;
+}, { passive: true });
+document.addEventListener('pointerleave', () => { mouse.active = false; });
+let shockAt = -99;
+addEventListener('pointerdown', e => {
+  if (e.target.closest('a,button,input,label,.light,footer')) return;
+  uniforms.uShock.value.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1);
+  shockAt = clock; seenShock = true;
+});
+
+let baseFov = 45;
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false);
+  composer.setPixelRatio(small ? Math.min(DPR, 1.5) : DPR);
+  composer.setSize(w, h);
+  camera.aspect = w / h;
+  baseFov = w / h < .8 ? 58 : 45;
+  uniforms.uAspect.value = w / h; lens.uniforms.uAspect.value = w / h;
+  lens.uniforms.uRes.value.set(w, h);
+  uniforms.uSize.value = 50 * DPR * Math.min(1.25, h / 860) * (small ? 1.15 : 1);
+  measure();
+}
+addEventListener('resize', resize); resize();
+
+/* ---------- frame ---------- */
+let sCur = stageAt(scrollY), last = performance.now(), t = 0, clock = 0, pipeProgress = 0, lastY = scrollY, vel = 0, introAt = -1;
+const camP = new THREE.Vector3(), camT = new THREE.Vector3(), pA = new THREE.Vector3(), pB = new THREE.Vector3();
+const L = STAGES.length - 1;
+const ease4 = k => 1 - Math.pow(1 - k, 4);
+
+function frame(now) {
+  const dt = Math.min(.05, (now - last) / 1000); last = now;
+  clock += dt;
+  if (!reduce) t += dt;
+  // scroll speed: the lens and the camera feel it
+  const raw = clamp(Math.abs(scrollY - lastY) / Math.max(dt, 1e-3) / 2600); lastY = scrollY;
+  vel += (raw - vel) * (1 - Math.exp(-dt * (raw > vel ? 8 : 3)));
+  const covered = scrollY > lightTop + 10;
+  if (!covered) {
+    if (introAt < 0) introAt = clock;
+    const intro = reduce ? 1 : clamp((clock - introAt) / 2.8);
+    const target = stageAt(scrollY);
+    sCur += (target - sCur) * (1 - Math.exp(-dt * 5.5));
+    if (Math.abs(target - sCur) < 1e-4) sCur = target;
+    const a = Math.min(L, Math.floor(sCur)), b = Math.min(L, a + 1), f = sCur - a;
+    const m = smooth(clamp((f - .12) / .76));
+    const A = STAGES[a], B = STAGES[b];
+    if (A.dyn) A.dyn(t); if (B.dyn && B !== A) B.dyn(t);
+    const Ap = A.p, Bp = B.p, Aa = A.a, Ba = B.a, As = A.s, Bs = B.s;
+
+    // the point
+    pointAt(a, t, pA); pointAt(b, t, pB);
+    glow.position.lerpVectors(pA, pB, m); core.position.copy(glow.position);
+    const gx = glow.position.x, gy = glow.position.y, gz = glow.position.z;
+
+    // a swirl through the transition so the morph reads as gathering, not sliding
+    const sw = Math.sin(m * Math.PI) * (.9 + vel * .8);
+    for (let i = 0; i < N; i++) {
+      const j = i * 3, ph = seed[i];
+      let x = Ap[j] + (Bp[j] - Ap[j]) * m + Math.cos(ph) * sw;
+      let y = Ap[j + 1] + (Bp[j + 1] - Ap[j + 1]) * m + Math.sin(ph * 1.3) * sw * .6;
+      let z = Ap[j + 2] + (Bp[j + 2] - Ap[j + 2]) * m + Math.sin(ph) * sw;
+      let grow = 1;
+      if (intro < 1) { // everything is released from the point on arrival
+        const k = ease4(clamp(intro * 1.45 - ph / 6.283 * .45)), r0 = (1 - k) * .7;
+        x = gx + Math.cos(ph) * Math.sin(ph * 3.1) * r0 + (x - gx) * k;
+        y = gy + Math.sin(ph * 2.3) * r0 + (y - gy) * k;
+        z = gz + Math.cos(ph * 1.7) * r0 + (z - gz) * k;
+        grow = .2 + .8 * k;
+      }
+      pos[j] = x; pos[j + 1] = y; pos[j + 2] = z;
+      acc[i] = Aa[i] + (Ba[i] - Aa[i]) * m;
+      siz[i] = (As[i] + (Bs[i] - As[i]) * m) * grow;
+    }
+    geo.attributes.position.needsUpdate = geo.attributes.aAcc.needsUpdate = geo.attributes.aSize.needsUpdate = true;
+
+    // camera
+    const k3 = 1 - Math.exp(-dt * 3);
+    mouse.sx += ((mouse.active ? mouse.x : 0) - mouse.sx) * k3;
+    mouse.sy += ((mouse.active ? mouse.y : 0) - mouse.sy) * k3;
+    const SA = SHOTS[a], SB = SHOTS[b];
+    camP.lerpVectors(SA.p, SB.p, m); camT.lerpVectors(SA.t, SB.t, m);
+    if (!reduce) { camP.x += mouse.sx * .8; camP.y += mouse.sy * .5; camP.multiplyScalar(1 + (1 - ease4(intro)) * .35); }
+    camera.position.copy(camP); camera.lookAt(camT);
+    camera.fov = baseFov + (reduce ? 0 : vel * 9);
+    const w = innerWidth, h = innerHeight, sx = lerp(SA.sx, SB.sx, m), sy = lerp(SA.sy, SB.sy, m);
+    camera.setViewOffset(w, h, -sx * w, sy * h, w, h);
+    viewSX = sx; viewSY = sy;
+    camera.updateProjectionMatrix();
+
+    const md = Math.hypot(mouse.x - mouse.px, mouse.y - mouse.py) / Math.max(dt, 1e-3); mouse.px = mouse.x; mouse.py = mouse.y;
+    mouse.vel += (clamp(md / 6) - mouse.vel) * (1 - Math.exp(-dt * 5));
+    uniforms.uMouse.value.set(mouse.active ? mouse.x : 9, mouse.active ? mouse.y : 9);
+    uniforms.uMouseVel.value = mouse.vel;
+    uniforms.uShockT.value = clock - shockAt;
+    uniforms.uTime.value = t;
+    uniforms.uFocus.value = camP.distanceTo(camT);
+
+    // lines
+    const wgt = k => clamp(1 - Math.abs(sCur - k) * 1.6);
+    const wp = wgt(6);
+    pipeProgress = clamp((sCur - 5.35) / .65);
+    pipeLine.geometry.setDrawRange(0, Math.floor(600 * pipeProgress) + 1);
+    pipeLine.material.opacity = wp;
+    pipeLine.visible = wp > .01;
+    const wg = wgt(3);
+    arcs.forEach((l, i) => { const k = clamp((sCur - 2.4) / .6 - i * .05); l.geometry.setDrawRange(0, Math.floor(81 * k)); l.material.opacity = wg * .8; l.visible = wg > .01; });
+
+    const pulse = 1 + Math.sin(t * 2.2) * .08 + Math.max(0, 1 - (clock - shockAt) * 2) * .5;
+    const big = lerp(a === 9 ? 2 : 1.3, b === 9 ? 2 : 1.3, m) * (1 + (1 - ease4(intro)) * 1.5);
+    glow.scale.setScalar(big * pulse); core.scale.setScalar(.42 * pulse);
+
+    // wake behind the point
+    if (!trailPrimed) { for (let i = 0; i < TRAIL; i++) trailPos.set([gx, gy, gz], i * 3); trailPrimed = true; }
+    trailPos.copyWithin(3, 0, (TRAIL - 1) * 3); trailPos[0] = gx; trailPos[1] = gy; trailPos[2] = gz;
+    trailGeo.attributes.position.needsUpdate = true;
+
+    updatePlates(dt, sCur);
+    placeTags(sCur);
+    lens.uniforms.uVel.value = reduce ? 0 : vel;
+    lens.uniforms.uTime.value = clock;
+    composer.render(dt);
+    if (!canvas.classList.contains('ready')) canvas.classList.add('ready');
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* rail links scroll to the chapter centre so the scene is settled on arrival */
+railLinks.forEach(a => a.addEventListener('click', e => {
+  const i = +a.dataset.to; if (!sections[i]) return;
+  e.preventDefault();
+  scrollTo({ top: Math.max(0, anchors[i]), behavior: reduce ? 'auto' : 'smooth' });
+  history.replaceState(null, '', a.getAttribute('href'));
+}));
+</script>
+</body>
+</html>

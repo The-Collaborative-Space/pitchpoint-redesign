@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T03:46:07.755118+00:00",
+  "title": "Design System: PitchPoint",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "neutral",
+        "displayName": "Deep Navy",
+        "canonical": "#13151d",
+        "tonalRamp": [
+          "#0a0b0f",
+          "#22252d",
+          "#3f424b",
+          "#5e616b",
+          "#7f828c",
+          "#a2a5b0",
+          "#c5c9d4",
+          "#eceef5"
+        ]
+      },
+      "navy-2": {
+        "role": "neutral",
+        "displayName": "Navy Raised",
+        "canonical": "#1b1e29",
+        "tonalRamp": [
+          "#090b11",
+          "#212430",
+          "#3e414e",
+          "#5d616e",
+          "#7e8290",
+          "#a0a4b3",
+          "#c4c9d8",
+          "#ebeef8"
+        ]
+      },
+      "navy-line": {
+        "role": "neutral",
+        "displayName": "Navy Hairline",
+        "canonical": "#2a2e3c",
+        "tonalRamp": [
+          "#090b12",
+          "#212432",
+          "#3d4150",
+          "#5c6170",
+          "#7d8292",
+          "#9fa4b6",
+          "#c3c9db",
+          "#ebeef9"
+        ]
+      },
+      "smoke": {
+        "role": "neutral",
+        "displayName": "Warm Smoke",
+        "canonical": "#f1ece7",
+        "tonalRamp": [
+          "#0d0b09",
+          "#282421",
+          "#45413d",
+          "#65605c",
+          "#86817d",
+          "#a9a49f",
+          "#cdc8c3",
+          "#f1eeeb"
+        ]
+      },
+      "smoke-dim": {
+        "role": "neutral",
+        "displayName": "Smoke Dim",
+        "canonical": "#c9c3bc",
+        "tonalRamp": [
+          "#0d0b08",
+          "#29241f",
+          "#46413b",
+          "#66605a",
+          "#87817b",
+          "#aaa49d",
+          "#cec8c1",
+          "#f1eee9"
+        ]
+      },
+      "smoke-mute": {
+        "role": "neutral",
+        "displayName": "Smoke Mute",
+        "canonical": "#a39e98",
+        "tonalRamp": [
+          "#0d0b08",
+          "#282420",
+          "#45413c",
+          "#65605b",
+          "#86817c",
+          "#a9a49e",
+          "#cdc8c2",
+          "#f1eeea"
+        ]
+      },
+      "smoke-rule": {
+        "role": "neutral",
+        "displayName": "Smoke Rule",
+        "canonical": "#d6cfc6",
+        "tonalRamp": [
+          "#0d0b07",
+          "#29241d",
+          "#47413a",
+          "#666058",
+          "#888179",
+          "#aba49b",
+          "#cfc8bf",
+          "#f2eee8"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Brass Point Gold",
+        "canonical": "#a4946f",
+        "tonalRamp": [
+          "#110a00",
+          "#302300",
+          "#4e401d",
+          "#6f5f3c",
+          "#90815c",
+          "#b4a37e",
+          "#d8c8a1",
+          "#f8eed6"
+        ]
+      },
+      "gold-hi": {
+        "role": "primary",
+        "displayName": "Lit Gold",
+        "canonical": "#c9b68a",
+        "tonalRamp": [
+          "#120a00",
+          "#322200",
+          "#504016",
+          "#705f36",
+          "#928056",
+          "#b6a378",
+          "#dbc79b",
+          "#f9eed3"
+        ]
+      },
+      "gold-ink": {
+        "role": "primary",
+        "displayName": "Ink Gold",
+        "canonical": "#6c5f40",
+        "tonalRamp": [
+          "#100a00",
+          "#2f2304",
+          "#4d4022",
+          "#6d6041",
+          "#8f8161",
+          "#b2a483",
+          "#d6c8a6",
+          "#f7eed9"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#3e414b",
+        "tonalRamp": [
+          "#0a0b10",
+          "#22252e",
+          "#3f424c",
+          "#5e616c",
+          "#7e828d",
+          "#a1a5b0",
+          "#c5c9d5",
+          "#eceef6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only; phones clamp(2.6rem, 11.5vw, 3.6rem)."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "One real number per work chapter; unit at 0.32em in Lit Gold."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Chapter H2s; light panel and Connect raise the ceiling to 6rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Service names and index terms."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, max 62ch, 1rem on phones."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Opening paragraph of a chapter in full Smoke."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Rail, focus areas, deliverable lines, hours, footer headings (0.78 to 0.85rem, 0.12 to 0.14em)."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Buttons, nav and text links (0.9rem in nav)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "gold-lift",
+        "value": "0 10px 30px -12px rgba(164,148,111,.7)",
+        "purpose": "Primary button hover only."
+      },
+      {
+        "name": "copy-vignette",
+        "value": "radial-gradient(closest-side, rgba(19,21,29,.95), rgba(19,21,29,.8) 55%, rgba(19,21,29,0))",
+        "purpose": "Background pseudo-element behind copy over the WebGL field (bottom-up linear gradient on phones)."
+      },
+      {
+        "name": "header-scrim",
+        "value": "linear-gradient(rgba(19,21,29,.92), rgba(19,21,29,.6) 60%, rgba(19,21,29,0))",
+        "purpose": "Fixed header over the story; smoke variant over the light panel."
+      },
+      {
+        "name": "point-glow",
+        "value": "radial sprite: rgba(255,240,205,1) 0, rgba(214,190,140,.9) .12, rgba(164,148,111,.25) .4, transparent 1; additive",
+        "purpose": "The gold point in WebGL; scale 1.5 (2.6 at the asterisk), pulse ±8%."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "The only easing curve, all transitions."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity/translateY(28px)/blur(6px) 1.1s, stagger .08s",
+        "purpose": "Copy children entering, JS only."
+      },
+      {
+        "name": "hover",
+        "value": "0.4s to 0.5s",
+        "purpose": "Button, link, rail and underline transitions."
+      },
+      {
+        "name": "rail-spin",
+        "value": "rotate 360deg 9s linear infinite",
+        "purpose": "Active rail asterisk."
+      },
+      {
+        "name": "stage-follow",
+        "value": "exponential approach, rate 5.5/s; morph smoothstep over 12%-88% of the interval with sin swirl 0.9",
+        "purpose": "Particle cloud and camera chasing scroll between chapter stages."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation none, transitions .01ms, WebGL time frozen",
+        "purpose": "prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "1000px"
+      },
+      {
+        "name": "phone",
+        "value": "760px"
+      }
+    ],
+    "stageSystem": {
+      "particles": {
+        "desktop": 12000,
+        "phone": 6500
+      },
+      "stages": [
+        "field",
+        "silos",
+        "table",
+        "globe",
+        "deck",
+        "broadcast",
+        "pipeline",
+        "towers",
+        "strata",
+        "asterisk"
+      ],
+      "attributes": [
+        "position",
+        "accent (0 smoke to 1 gold)",
+        "size"
+      ],
+      "blending": "additive, distance fade 6 to 48",
+      "colors": {
+        "smoke": "#f1ece7 x0.82",
+        "gold": "#c9b68a x1.15"
+      },
+      "camera": "per-chapter shot: position, target, screen-shift x/y; scaled 1.28 and centred on phones; fov 58 when aspect < 0.8",
+      "lines": "gold LineBasicMaterial, progressive draw range (pipeline, Adelaide arcs)",
+      "cursor": "NDC halo radius .34 pushes particles and tints gold",
+      "fallback": "no-webgl hides the canvas; copy stays visible"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Gold fill call to action (Connect, Email Candice).",
+      "html": "<div class=\"ds-bg\"><a class=\"ds-btn ds-btn-primary\" href=\"#\">Connect <svg viewBox=\"0 0 14 14\" width=\"14\" height=\"14\" aria-hidden=\"true\"><path d=\"M1 7h11M7.5 2.5 12 7l-4.5 4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-bg{background:var(--navy);padding:24px}.ds-btn{display:inline-flex;align-items:center;gap:.7rem;font:700 1rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:1rem 1.35rem;border:1px solid var(--gold);border-radius:0;cursor:pointer;transition:background .4s var(--ease),color .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}.ds-btn svg{transition:transform .45s var(--ease)}.ds-btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}.ds-btn-primary{background:var(--gold);color:var(--navy)}.ds-btn-primary:hover{background:var(--gold-hi);border-color:var(--gold-hi);box-shadow:0 10px 30px -12px rgba(164,148,111,.7)}.ds-btn-primary:hover svg{transform:translateX(4px)}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Hairline secondary action (header Connect, Call).",
+      "html": "<div class=\"ds-bg\"><a class=\"ds-btn ds-btn-ghost\" href=\"#\">Call 0422 509 739</a></div>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-bg{background:var(--navy);padding:24px}.ds-btn{display:inline-flex;align-items:center;gap:.7rem;font:700 1rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:1rem 1.35rem;border:1px solid var(--gold);border-radius:0;cursor:pointer;transition:background .4s var(--ease),color .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease)}.ds-btn svg{transition:transform .45s var(--ease)}.ds-btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}.ds-btn-ghost{background:transparent;color:var(--smoke);border-color:currentColor}.ds-btn-ghost:hover{background:var(--smoke);color:var(--navy);border-color:var(--smoke)}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Secondary hero action with a dropping arrow.",
+      "html": "<div class=\"ds-bg\"><a class=\"ds-textlink\" href=\"#\">See how we work <svg viewBox=\"0 0 14 14\" width=\"12\" height=\"12\" aria-hidden=\"true\"><path d=\"M7 1v11M2.5 7.5 7 12l4.5-4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-bg{background:var(--navy);padding:24px}.ds-textlink{display:inline-flex;align-items:center;gap:.55rem;font:700 1rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--smoke);padding:1rem .25rem}.ds-textlink svg{transition:transform .45s var(--ease)}.ds-textlink:hover svg{transform:translateY(3px)}.ds-textlink:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Fixed header nav with wiping underline and ghost Connect.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">What we do</a><a href=\"#\">Latest work</a><a href=\"#\">Services</a><a class=\"ds-nav-cta\" href=\"#\">Connect</a></nav>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-nav{display:flex;gap:2.25rem;align-items:center;background:var(--navy);padding:1.35rem 24px;color:var(--smoke)}.ds-nav a{font:700 .9rem/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:inherit;padding:.5rem 0;position:relative}.ds-nav a:not(.ds-nav-cta)::after{content:'';position:absolute;left:0;right:0;bottom:.2rem;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}.ds-nav a:not(.ds-nav-cta):hover::after{transform:scaleX(1);transform-origin:left}.ds-nav a:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}.ds-nav .ds-nav-cta{padding:.7rem 1rem;border:1px solid currentColor;transition:background .4s var(--ease),color .4s var(--ease)}.ds-nav .ds-nav-cta:hover{background:var(--smoke);color:var(--navy)}"
+    },
+    {
+      "name": "Service Rows",
+      "kind": "custom",
+      "refersTo": "service-row",
+      "description": "Hairline-ruled list with asterisk bullets; max three per chapter.",
+      "html": "<ul class=\"ds-svc\"><li><svg viewBox=\"0 0 16 16\" width=\"13\" height=\"13\" aria-hidden=\"true\"><path transform=\"translate(17.023 89.6)\" d=\"M-15.219-76.167a9.261,9.261,0,0,1,3.068-3.164l3.008-2.03-.421,3.582A9.37,9.37,0,0,1-10.949-73.6H-7.1a9.37,9.37,0,0,1-1.383-4.179L-8.9-81.361l3.008,2.03a9.261,9.261,0,0,1,3.068,3.164l1.8-3.343a9.41,9.41,0,0,1-4.331-.776L-8.663-81.6l3.308-1.313a9.41,9.41,0,0,1,4.331-.776l-1.8-3.343A9.261,9.261,0,0,1-5.9-83.869L-8.9-81.839l.421-3.582A9.37,9.37,0,0,1-7.1-89.6h-3.85a9.37,9.37,0,0,1,1.383,4.179l.421,3.582-3.008-2.03a9.261,9.261,0,0,1-3.068-3.164l-1.8,3.343a9.41,9.41,0,0,1,4.331.776L-9.385-81.6l-3.308,1.313a9.41,9.41,0,0,1-4.331.776Z\"/></svg><div><b>Outreach &amp; Corporate Access</b><span>Hosted lunches and dinners that seat you with the decision-makers you need.</span></div></li><li><svg viewBox=\"0 0 16 16\" width=\"13\" height=\"13\" aria-hidden=\"true\"><path transform=\"translate(17.023 89.6)\" d=\"M-15.219-76.167a9.261,9.261,0,0,1,3.068-3.164l3.008-2.03-.421,3.582A9.37,9.37,0,0,1-10.949-73.6H-7.1a9.37,9.37,0,0,1-1.383-4.179L-8.9-81.361l3.008,2.03a9.261,9.261,0,0,1,3.068,3.164l1.8-3.343a9.41,9.41,0,0,1-4.331-.776L-8.663-81.6l3.308-1.313a9.41,9.41,0,0,1,4.331-.776l-1.8-3.343A9.261,9.261,0,0,1-5.9-83.869L-8.9-81.839l.421-3.582A9.37,9.37,0,0,1-7.1-89.6h-3.85a9.37,9.37,0,0,1,1.383,4.179l.421,3.582-3.008-2.03a9.261,9.261,0,0,1-3.068-3.164l-1.8,3.343a9.41,9.41,0,0,1,4.331.776L-9.385-81.6l-3.308,1.313a9.41,9.41,0,0,1-4.331.776Z\"/></svg><div><b>One-to-One Campaigns</b><span>Short, targeted appointment-setting when you need specific meetings.</span></div></li></ul>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-svc{list-style:none;margin:0;padding:16px 24px;background:var(--navy);font-family:var(--body)}.ds-svc li{display:grid;grid-template-columns:1.1rem 1fr;gap:.9rem;padding:1.05rem 0;border-bottom:1px solid var(--navy-line)}.ds-svc li:first-child{border-top:1px solid var(--navy-line)}.ds-svc svg{margin-top:.35rem;fill:var(--gold)}.ds-svc b{display:block;font:700 1.12rem/1.15 var(--display);letter-spacing:.03em;text-transform:uppercase;color:var(--smoke);margin-bottom:.3rem}.ds-svc span{color:var(--smoke-mute);font-size:.98rem;line-height:1.5}"
+    },
+    {
+      "name": "Chapter Headline",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Condensed uppercase H2 with one Lit Gold phrase, lead and deliverable line.",
+      "html": "<div class=\"ds-ch\"><h2>Underground, <em>across Queensland.</em></h2><p>An investment summary for a 182 km underground water pipeline project in Queensland.</p><p class=\"ds-deliv\">The Bowen Pipeline Company · Investment summary</p></div>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-ch{background:var(--navy);padding:32px 24px;color:var(--smoke);font:400 1.0625rem/1.6 var(--body)}.ds-ch h2{font:700 clamp(2.6rem,5.4vw,4.75rem)/.94 var(--display);letter-spacing:-.005em;text-transform:uppercase;margin:0 0 1.6rem}.ds-ch em{font-style:normal;color:var(--gold-hi)}.ds-ch p{color:#c9c3bc;margin:0 0 1.1rem;max-width:62ch}.ds-deliv{display:inline-flex;font:400 .85rem/1 var(--display)!important;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke-mute)!important;border-top:1px solid var(--navy-line);padding-top:1rem}"
+    },
+    {
+      "name": "Chapter Rail",
+      "kind": "nav",
+      "refersTo": "rail",
+      "description": "Fixed chapter index; active item turns gold with a spinning asterisk.",
+      "html": "<ol class=\"ds-rail\"><li><a href=\"#\"><span>The problem</span><i></i></a></li><li><a href=\"#\" class=\"on\"><span>The room</span><i><svg viewBox=\"0 0 16 16\" width=\"13\" height=\"13\" aria-hidden=\"true\"><path transform=\"translate(17.023 89.6)\" d=\"M-15.219-76.167a9.261,9.261,0,0,1,3.068-3.164l3.008-2.03-.421,3.582A9.37,9.37,0,0,1-10.949-73.6H-7.1a9.37,9.37,0,0,1-1.383-4.179L-8.9-81.361l3.008,2.03a9.261,9.261,0,0,1,3.068,3.164l1.8-3.343a9.41,9.41,0,0,1-4.331-.776L-8.663-81.6l3.308-1.313a9.41,9.41,0,0,1,4.331-.776l-1.8-3.343A9.261,9.261,0,0,1-5.9-83.869L-8.9-81.839l.421-3.582A9.37,9.37,0,0,1-7.1-89.6h-3.85a9.37,9.37,0,0,1,1.383,4.179l.421,3.582-3.008-2.03a9.261,9.261,0,0,1-3.068-3.164l-1.8,3.343a9.41,9.41,0,0,1,4.331.776L-9.385-81.6l-3.308,1.313a9.41,9.41,0,0,1-4.331.776Z\"/></svg></i></a></li><li><a href=\"#\"><span>The region</span><i></i></a></li></ol>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-rail{list-style:none;margin:0;padding:24px;background:var(--navy);display:flex;flex-direction:column;gap:.15rem;align-items:flex-end}.ds-rail a{display:flex;align-items:center;gap:.6rem;font:400 .78rem/1 var(--display);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--smoke-mute);padding:.42rem 0;transition:color .4s var(--ease)}.ds-rail a span{background:rgba(19,21,29,.85);padding:.3rem .45rem;opacity:0;transform:translateX(6px);transition:opacity .4s var(--ease),transform .4s var(--ease)}.ds-rail a:hover{color:var(--smoke)}.ds-rail a:hover span,.ds-rail a.on span{opacity:1;transform:none}.ds-rail i{width:12px;height:12px;display:grid;place-items:center}.ds-rail i:empty::before{content:'';width:4px;height:4px;background:currentColor}.ds-rail a.on{color:var(--gold-hi)}.ds-rail a.on svg{width:12px;height:12px;fill:var(--gold-hi);animation:ds-spin 9s linear infinite}@keyframes ds-spin{to{transform:rotate(360deg)}}"
+    },
+    {
+      "name": "Index Column",
+      "kind": "card",
+      "refersTo": "index-column",
+      "description": "Light smoke panel service column with asterisk heading and term list.",
+      "html": "<div class=\"ds-col\"><h3><svg viewBox=\"0 0 16 16\" width=\"13\" height=\"13\" aria-hidden=\"true\"><path transform=\"translate(17.023 89.6)\" d=\"M-15.219-76.167a9.261,9.261,0,0,1,3.068-3.164l3.008-2.03-.421,3.582A9.37,9.37,0,0,1-10.949-73.6H-7.1a9.37,9.37,0,0,1-1.383-4.179L-8.9-81.361l3.008,2.03a9.261,9.261,0,0,1,3.068,3.164l1.8-3.343a9.41,9.41,0,0,1-4.331-.776L-8.663-81.6l3.308-1.313a9.41,9.41,0,0,1,4.331-.776l-1.8-3.343A9.261,9.261,0,0,1-5.9-83.869L-8.9-81.839l.421-3.582A9.37,9.37,0,0,1-7.1-89.6h-3.85a9.37,9.37,0,0,1,1.383,4.179l.421,3.582-3.008-2.03a9.261,9.261,0,0,1-3.068-3.164l-1.8,3.343a9.41,9.41,0,0,1,4.331.776L-9.385-81.6l-3.308,1.313a9.41,9.41,0,0,1-4.331.776Z\"/></svg>Positioning Services</h3><dl><dt>Capability Statements</dt><dd>Who you are and what you can deliver, set down clearly.</dd><dt>Pitch Decks &amp; Tender Materials</dt><dd>Presentation and submission material for the people who decide.</dd></dl></div>",
+      "css": ":root{--navy:#13151d;--smoke:#f1ece7;--smoke-mute:#a39e98;--navy-line:#2a2e3c;--gold:#a4946f;--gold-hi:#c9b68a;--display:'DM Sans',system-ui,sans-serif;--body:'DM Sans',system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}.ds-col{background:var(--smoke);color:var(--navy);padding:2rem 2rem 2.5rem;border-top:2px solid var(--navy);font-family:var(--body)}.ds-col h3{font:700 clamp(1.6rem,2.3vw,2.1rem)/1 var(--display);text-transform:uppercase;margin:0 0 2rem;display:flex;gap:.7rem;align-items:flex-start}.ds-col h3 svg{width:16px;height:16px;flex:none;fill:var(--gold);margin-top:.35rem}.ds-col dl{margin:0}.ds-col dt{font:700 1.08rem/1.2 var(--display);letter-spacing:.04em;text-transform:uppercase;margin-top:1.6rem}.ds-col dd{margin:.35rem 0 0;color:#3e414b;font-size:.98rem;line-height:1.55}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Point",
+    "overview": "One gold point moves through a deep navy field of smoke-coloured contacts and reorganises it. The whole system is built around that single act: a dark, quiet ground, thousands of small pale dots, and gold reserved for whatever PitchPoint is doing right now (the point, the line it draws, the action you can take). Type is the brand's own: DM Sans Bold in sentence case, set large and tightly tracked, over DM Sans Light body (standing in for the live site's Corp Light). It states one thing per chapter and then gets out of the way.\n\nThe page is a scroll story, not a stack of sections. A fixed full-bleed WebGL particle field sits behind everything and morphs, chapter by chapter, between built forms (scattered field, isolated silos, a dinner table for sixteen, an Asia Pacific globe, a fanned document deck, broadcast rings, a pipeline over terrain, a data hall with turbines, carbon strata, and finally the six-spoke asterisk). Copy blocks float over it on a soft navy vignette. After the story, one warm smoke \"index\" panel lists every service in plain columns, then a navy footer hands over the email address at display size.\n\nDensity is low and deliberate: each chapter holds a headline, one or two paragraphs and at most three service rows. Corners are square, controls are hairline-bordered, and depth comes from light (additive particles, a gold glow sprite) rather than from shadows or cards.",
+    "keyCharacteristics": [
+      "Navy ground, smoke text, gold only for the point, its lines and actions.",
+      "DM Sans 700 sentence-case display with tight tracking; DM Sans 300 body; small tracked uppercase labels.",
+      "Six-spoke asterisk as the only marker: list bullets, dividers, active rail state, the final 3D form.",
+      "Square corners everywhere; 1px hairline rules and borders.",
+      "A scroll-scrubbed 3D stage system with a choreographed camera per chapter."
+    ],
+    "rules": [
+      {
+        "name": "The Point Rule",
+        "body": "Gold marks where PitchPoint is acting: the glowing point, the line it draws, the asterisk, the call to action, the one emphasised phrase per headline. It never fills large areas and never becomes a background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Grounds Rule",
+        "body": "There are exactly two surfaces: navy (the story, the footer) and smoke (the index panel). The header inverts to smoke-on-ink when it crosses the smoke panel, rather than introducing a third tone.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Phrase Rule",
+        "body": "Each headline carries at most one Lit Gold phrase, set as non-italic `em` (font-style normal). It is the turn of the sentence, not decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Display Ceiling Rule",
+        "body": "Display type caps at 6rem, the figure numeral at 10.5rem. Line-height for display stays under 1.",
+        "section": "typography"
+      },
+      {
+        "name": "The Light Not Shadow Rule",
+        "body": "Depth is made with light on navy (additive glow, distance fade, vignettes), never with drop shadows on panels.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep gold to the point, its lines, the asterisk, actions and one headline phrase (The Point Rule).",
+      "**Do** set headlines in DM Sans 700 sentence case with tight tracking; keep uppercase for small tracked labels and actions only.",
+      "**Do** use the six-spoke asterisk as the bullet, divider and active marker; draw it from the shipped SVG.",
+      "**Do** keep corners square and borders 1px; use `navy-line` on navy and `smoke-rule` on smoke.",
+      "**Do** use `gold-ink`, not `gold`, for small text on the smoke panel.",
+      "**Do** give every new chapter a 3D stage and a camera shot, with copy on the side opposite the form."
+    ],
+    "donts": [
+      "**Don't** introduce rounded corners, cards or resting drop shadows on the navy story.",
+      "**Don't** add a third surface tone; navy and smoke are the only grounds.",
+      "**Don't** use more than one gold phrase in a headline, or italicise it.",
+      "**Don't** add statistics, testimonials or figures the work did not produce; the figure style is for one real number.",
+      "**Don't** add a second easing curve."
+    ]
+  }
+}
